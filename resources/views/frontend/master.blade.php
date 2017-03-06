@@ -117,7 +117,7 @@
         url: 'addtocart',
         success: function (data) {
             i = data;
-            $('#total_product').html(i);
+            $('#total_product').html(i + ' Product');
         }
     });
     function myShow(element) {
@@ -127,7 +127,7 @@
             success: function (data) {
                 $(".notifyjs-corner").fadeIn("fast").delay(3000).fadeOut();
                 i = data;
-                $('#total_product').html(i);
+                $('#total_product').html(i + ' Product');
             }
         });
 

@@ -46,15 +46,14 @@
                 <div class="col-xs-4 nav-mobile-button"> <a href="#nav-mobile"><i class="fa fa-bars fa-2x"></i></a> </div>
                 <div class="col-md-5 col-sm-8 hidden-xs header-services ">
                     <ul class="row">
-                        <li class="col-md-4 col-sm-4"> <a href="#" class="title"><i class="fa fa-cube"></i>Giao hàng free</a> </li>
-                        <li class="col-md-4 col-sm-4"> <a href="#" class="title"><i class="fa fa-exchange"></i>Đổi trả free</a> </li>
-                        <li class="col-md-4 col-sm-4"> <a href="#" class="title"><i class="fa fa-life-ring"></i>Hỗ trợ 24/7</a> </li>
+                        <li class="col-md-6 col-sm-4"> <a href="#" class="title"><i class="fa fa-cube"></i>Free ship</a> </li>
+                        <li class="col-md-6 col-sm-4"> <a href="#" class="title"><i class="fa fa-life-ring"></i>Support 24/7</a> </li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-8 header-cart">
                     <div class="cart-mini pull-right">
                         <div class="cart-mini-button">
-                           <a href="{!! url('cart') !!}"><span class="item_cart" style="color: white"><div id="total_product">0</div> Product</span></a>
+                           <a href="{!! url('cart') !!}"><span class="item_cart" style="color: white" id="total_product">0 Product</span></a>
                         </div>
                     </div>
                 </div>
@@ -71,58 +70,21 @@
                         <ul>
                             <li class="@yield('trangchu')"><a href="{!! url('/phone') !!}">Home </a> </li>
                             <li> <a href="#">Introduce</a> </li>
-                           <!-- <li class="@yield('sanpham')"> <a href="{!! url('san-pham') !!}">Product<i class="fa fa-caret-down"></i></a>-->
-                            <li class="dropdown"> <a data-toggle="dropdown" class="dropdown-toggle" href="#">Product<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-submenu"><a href="#">Apple</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Iphone 7&7 Plus</a>
-                                            </li>
-                                            <li><a href="#">Iphone 6s&6s Plus</a>
-                                            </li>
-                                            <li><a href="#">Iphone 6&6 Plus</a>
-                                            </li>
-                                            <li><a href="#">Iphone SE</a>
-                                            </li>
-                                            <li><a href="#">Iphone 5s</a>
-                                            </li>
-                                            <li><a href="#">iPod</a>
-                                            </li>
-
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu"> <a href="#">Samsung</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Samsung Galaxy Note</a>
-                                            </li>
-                                            <li><a href="#">Samsung Galaxy S</a>
-                                            </li>
-                                            <li><a href="#">Samsung Galaxy J</a>
-                                            </li>
-                                            <li><a href="#">Samsung Galaxy A</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="dropdown-submenu"> <a href="#">Hãng khác</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Lenovo</a>
-                                            </li>
-                                            <li><a href="#">Sony</a>
-                                            </li>
-                                            <li><a href="#">HTC</a>
-                                            </li>
-                                            <li><a href="#">Asus</a>
-                                            </li>
-                                            <li><a href="#">Xiaomi</a>
-                                            </li>
-                                            <li><a href="#">Nokia</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
+                            <li class="@yield('sanpham')"> <a href="{!! url('frontend_categories') !!}">Product<i class="fa fa-caret-down"></i></a>
+                                <ul>
+                                    <?php $menus = DB::table('categories')->select('id','name','alias','parent_id')->where('parent_id',0)->orderBy('id','DESC')->get(); ?>
+                                    @foreach ($menus as $menu)
+                                        <li><a href="{!! url('danh-muc',[$menu->alias]) !!}">{!! $menu->name !!}</a>
+                                            <?php $parent = DB::table('categories')->select('id','name','alias','parent_id')->where('parent_id',$menu->id)->orderBy('id','DESC')->get(); ?>
+                                            <ul>
+                                                @foreach($parent as $parents)
+                                                    <li><a href="{!! url('category',[$parents->alias]) !!}"><?php echo $parents->name ?></a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                    @endforeach
                                 </ul>
-                            </li>
+
                             </li>
                         </ul>
                         <ul>

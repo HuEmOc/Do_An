@@ -36,13 +36,16 @@ Route::group(['middleware'=>'isroleadmin'],function (){
     Route::resource('categories','backend\CategoriesController');
 });
 
-// trang chu
+// home
 Route::get('phone','frontend\PhoneController@index');
 
-//chi tiet san pham
+//category
+Route::get('frontend_categories','frontend\PhoneController@categories');
+
+
+//order_detail
 Route::get('detail','frontend\PhoneController@detail');
-//gio hang
-Route::get('cart',['as' =>'cart', 'uses' =>'frontend\PhoneController@cart']);
+
 //test
 Route::get('test','frontend\PhoneController@demo');
 //using facebook
@@ -53,11 +56,13 @@ Route::get('/callback', 'SocialAuthController@callback');
 Route::get('cate','backend\CategoriesController@show');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-
 //Search
 Route::get('home','frontend\PhoneController@theme');
 Route::get('search','frontend\PhoneController@search');
-
+//cart
+Route::get('cart',['as' =>'cart', 'uses' =>'frontend\PhoneController@cart']);
 Route::get('addtocart/{id?}','frontend\PhoneController@addtocart');
 Route::get('delete_cart','frontend\PhoneController@delete_cart');
 Route::get('remove_cart/{id}',['as' => 'remove_cart','uses' => 'frontend\PhoneController@remove_cart']);
+//pay
+Route::get('pay','frontend\PhoneController@pay');

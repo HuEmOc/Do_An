@@ -12,8 +12,10 @@
                                 <div class="owl-item" style="width: 210px;" data-id="{!! $product_new->id !!}">
                                     <div class="item">
                                         <div class="product-item">
-                                            <div class="product-item-image"> <a href="{!! url('/'.$product_new->alias) !!}">
-                                                <img class="img-responsive" src="{!! asset('/upload/'.$product_new->image) !!}" > </a>
+                                            <div class="product-item-image">
+                                                <a href="{!! url('detail') !!}">
+                                                <img class="img-responsive" src="{!! asset('/upload/'.$product_new->image) !!}" >
+                                                </a>
                                             </div>
                                             <a class="product-item-name" href="{!! url('/'.$product_new->alias) !!}">{!! $product_new->name !!}</a>
                                             <div>
@@ -22,7 +24,8 @@
                                                 @else
                                                     <p class="product-item-price"><?php echo number_format($product_new->price,0,',','.') ?>đ </p>
                                                 @endif
-                                                <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_new->id !!}"><span></span>Thêm vào giỏ</a> </div>
+                                                <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_new->id !!}"><span></span>Thêm vào giỏ</a>
+                                            </div>
 
                                             @if($product_new->pricesale > 0)
                                                 <span class="product-item-sale"></span>

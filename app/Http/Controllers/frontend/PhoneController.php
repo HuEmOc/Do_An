@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Response;
 use Cart;
+use DB;
 //use Gloudemans\Shoppingcart\Facades\Cart;
 
 
@@ -100,20 +102,21 @@ class PhoneController extends Controller
         $product_news = Product::all();
         dd($product_news);
     }
-
+//giỏ hàng
     public function cart()
     {
         $rows = Cart::content();
         return view('frontend.subpage.cart')->with(['rows'=>$rows]);
     }
-    //detal
+
+//chi tiết sản phẩm
     public function detail()
     {
         return view('frontend.subpage.detail');
     }
 
 
-
+//search
     public function search(){
         $products = Product::all();
         return Response::json(['records' => $products]);
@@ -124,6 +127,8 @@ class PhoneController extends Controller
         return view('frontend.subpage.search');
     }
 
+
+
     public function test($id = null){
         if(is_null($id)){
             return  Cart::count();
@@ -133,6 +138,9 @@ class PhoneController extends Controller
         return  Cart::count();
     }
 
+
+
+//thêm vào giỏ hàng
     public function addtocart($id = null){
         if (is_null($id)) {
             return (Cart::count()) ;
@@ -142,17 +150,30 @@ class PhoneController extends Controller
         return (Cart::count()) ;
         //return redirect()->route('giohang');
     }
-
+//hủy giỏ hàng
     public function delete_cart(){
         Cart::destroy();
         return redirect()->route('cart');
     }
-
+//xóa giỏ hàng
     public function remove_cart($id){
         Cart::remove($id);
         return redirect()->route('cart');
     }
-
+//thanh toán
+    public function pay(){
+        $pays = Cart::content();
+        //dd($pays);
+        return view('frontend.subpage.pay')->with(['$pays'=>$pays]);
+    }
+//danh mục sản phẩm
+    public function categories(){
+        //$categories = Category::all();
+        $categories = DB::table('categories')->select('id','name','alias','parent_id')->where('parent_id',0)->orderBy('id','DESC')->get();
+        $products = Product::all();
+        //dd($categories);
+        return view('frontend.subpage.category')->with(['categories'=>$categories,'products'=>$products]);
+    }
 
 
 

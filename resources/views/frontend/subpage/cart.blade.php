@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="pull-right">
                                         <a class="comment-submit" href="{!! url('delete_cart') !!}">Hủy giỏ hàng</a>
-                                        <a class="comment-submit" href="{!! url('thanh-toan') !!}">Thanh toán</a>
+                                        <a class="comment-submit" href="{!! url('pay') !!}">Thanh toán</a>
                                     </div>
                                 </td>
                             </tr>

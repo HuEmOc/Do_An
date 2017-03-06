@@ -12,7 +12,7 @@
                                     <div class="item">
                                         <div class="product-item">
                                             <div class="product-item-image">
-                                                <a href="{!! url('/'.$product_sale->alias) !!}">
+                                                <a href="{!! url('detail') !!}">
                                                     <img class="img-responsive" src="{!! asset('upload/'.$product_sale->image) !!}">
                                                 </a>
                                             </div>

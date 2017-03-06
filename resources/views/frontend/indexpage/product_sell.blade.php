@@ -12,7 +12,7 @@
                                 <div class="owl-item" style="width: 210px;" data-id="{!! $product_sell->id !!}">
                                     <div class="item">
                                         <div class="product-item">
-                                            <div class="product-item-image"> <a href="{!! url('/'.$product_sell->alias) !!}">
+                                            <div class="product-item-image"> <a href="{!! url('detail') !!}">
                                                     <img class="img-responsive" src="{!! asset('/upload/'.$product_sell->image) !!}" > </a> </div>
                                             <a class="product-item-name" href="{!! url('/'.$product_sell->alias) !!}">{!! $product_sell->name !!}</a>
                                             <div>
