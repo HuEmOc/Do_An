@@ -42,7 +42,9 @@
     <div class="header-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-12 header-logo"><img src="{!! asset('/upload/logoweb/logo-telephone-store.jpg') !!}" style="width:275px;height:50px" /> </div>
+                <div class="col-md-4 col-sm-12 header-logo">
+                    <a href="{{url('/phone')}}"><img src="{!! asset('/upload/logoweb/logo-telephone-store.jpg') !!}" style="width:275px;height:50px" /> </a>
+                </div>
                 <div class="col-xs-4 nav-mobile-button"> <a href="#nav-mobile"><i class="fa fa-bars fa-2x"></i></a> </div>
                 <div class="col-md-5 col-sm-8 hidden-xs header-services ">
                     <ul class="row">
@@ -70,7 +72,7 @@
                         <ul>
                             <li class="@yield('trangchu')"><a href="{!! url('/phone') !!}">Home </a> </li>
                             <li> <a href="#">Introduce</a> </li>
-                            <li class="@yield('sanpham')"> <a href="{!! url('frontend_categories') !!}">Product<i class="fa fa-caret-down"></i></a>
+                            <li class="@yield('sanpham')"> <a href="{!! url('frontend_categories/list') !!}">Product<i class="fa fa-caret-down"></i></a>
                                 <ul>
                                     <?php $menus = DB::table('categories')->select('id','name','alias','parent_id')->where('parent_id',0)->orderBy('id','DESC')->get(); ?>
                                     @foreach ($menus as $menu)
@@ -89,7 +91,7 @@
                         </ul>
                         <ul>
                             <li class="@yield('tintuc')"><a href="http://vnexpress.net/"> News </a> </li>
-                            <li class="@yield('lienhe')"><a> Contact</a> </li>
+                            <li class="@yield('lienhe')"><a href="{{url('contact')}}"> Contact</a> </li>
                         </ul>
                     </nav>
                 </div>

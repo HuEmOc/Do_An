@@ -85,6 +85,7 @@
                     </div>
                 </div>
             </div>
+           <div style="text-align: center"> {!! $products->render() !!}</div>
         </div>
     </section>
 @stop

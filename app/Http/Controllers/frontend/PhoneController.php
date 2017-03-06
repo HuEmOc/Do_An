@@ -170,13 +170,29 @@ class PhoneController extends Controller
     public function categories(){
         //$categories = Category::all();
         $categories = DB::table('categories')->select('id','name','alias','parent_id')->where('parent_id',0)->orderBy('id','DESC')->get();
-        $products = Product::all();
+        $products = Product::paginate(3);
         //dd($categories);
         return view('frontend.subpage.category')->with(['categories'=>$categories,'products'=>$products]);
     }
 
+    public function cateparent($alias){
+        $categorys = DB::table('categories')->select('id','name','alias','parent_id')->where('parent_id',0)->orderBy('id','DESC')->get();
+        $products = DB::table('categories')
+            ->join('products', 'categories.id', '=', 'products.cate_id')
+            ->select('categories.alias','products.*')->where('categories.alias',$alias)->groupBy('categories.alias','products.alias')
+            ->paginate(9);
+        $namecate = DB::table('categories')->select('id','name','alias','prarent_id')->where('alias',$alias)->first();
+        return view('frontend.pages.cateparent',compact('products','categorys','namecate'));
+    }
 
+    public function demo1(){
+        return view('frontend.subpage.demo');
+    }
 
+    //contact
+    public function contact(){
+        return view('frontend.subpage.contact');
+    }
 
 
 }
