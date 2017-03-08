@@ -4,6 +4,8 @@ namespace App\Http\Controllers\frontend;
 
 use App\Category;
 use App\Product;
+use App\rate;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Response;
@@ -23,7 +25,7 @@ class PhoneController extends Controller
     {
         //get all the information in the product
         $product_news = Product::orderBy('id', 'DESC')->get();
-        $product_sales = Product::orderBy('id', 'DESC')->where('pricesale', '>', 0)->get();
+        $product_sales = Product::orderBy('id', 'DESC')->get();
         // dd($product_sales);
         $product_sells = Product::all();
         return view('frontend.index', compact('product_news', 'product_sales', 'product_sells'));
@@ -112,7 +114,9 @@ class PhoneController extends Controller
 //chi tiết sản phẩm
     public function detail()
     {
-        return view('frontend.subpage.detail');
+        $products = Product::orderBy('id','desc')->get();
+        //dd($products);
+        return view('frontend.subpage.detail')->with(['products'=>$products]);
     }
 
 
@@ -194,5 +198,11 @@ class PhoneController extends Controller
         return view('frontend.subpage.contact');
     }
 
+
+
+    public function abc($id){
+        $product = rate::find($id)->name;
+        dd($product);
+    }
 
 }

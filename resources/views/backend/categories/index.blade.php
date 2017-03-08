@@ -19,17 +19,17 @@
                     <!--Tao thong bao-->
                     <table class="table table-bordered">
                         <tr>
-                            <td>ID</td>
-                            <td>Name</td>
-                            <td>Alias</td>
-                            <td>Order</td>
-                            <td>Parent_id</td>
-                            <td>Key Word</td>
-                            <td>Description</td>
-                            <td>Action</td>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Alias</th>
+                            <th>Order</th>
+                            <th>Parent_id</th>
+                            <th>Key Word</th>
+                            <th>Description</th>
+                            <th>Action</th>
                         </tr>
 
-                        @foreach($item as $key => $item)
+                        @foreach($items as $key => $item)
                             <tr>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
@@ -55,7 +55,7 @@
                         @endforeach
 
                     </table>
-
+                    <div style="text-align: center">{!! $items->render() !!}</div>
 
                 </div>
             </div>

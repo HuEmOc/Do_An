@@ -160,10 +160,10 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="">
+                        <li class="active"><a href="{{route('product.index')}}">
                                 <i class="fa fa-circle-o"></i> Show Products</a>
                         </li>
-                        <li><a href=""><i class="fa fa-circle-o">
+                        <li><a href="{{route('product.create')}}"><i class="fa fa-circle-o">
                                 </i>Add Products</a>
                         </li>
 

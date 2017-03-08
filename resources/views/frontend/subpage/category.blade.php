@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="home">Home</a></li>
+                        <li><a href="{{url('/phone')}}">Home</a></li>
                         <li class="active">Categories</li>
                     </ul>
                 </div>
@@ -68,11 +68,15 @@
                                 <div class="col-md-4 col-sm-6 ">
                                     <div class="product-item-category">
                                         <div class="product-item-image"> <a href="{!! url('/'.$product->alias) !!}">
-                                                <img class="img-responsive" src="{!! asset('/upload/'.$product->image) !!}"> </a> </div>
+                                                <img class="img-responsive" src="{!! asset('/Image_frontend/phone/'.$product->image) !!}"> </a> </div>
                                         <a class="product-item-name" href="{!! url('/'.$product->alias) !!}">{!! $product->name !!}</a>
                                         <div>
                                             @if($product->pricesale > 0)
-                                                <p class="product-item-price"> <?php echo number_format($product->pricesale,0,',','.') ?>đ<span class="product-item-price-sale"> <?php echo number_format($product->price,0,',','.') ?>đ </span> </p>
+                                                <p class="product-item-price"> <?php echo number_format($product->pricesale,0,',','.') ?>đ
+                                                    <span class="product-item-price-sale">
+                                                        <?php echo number_format($product->price,0,',','.') ?>đ
+                                                    </span>
+                                                </p>
                                             @else
                                                 <p class="product-item-price"><?php echo number_format($product->price,0,',','.') ?>đ </p>
                                             @endif

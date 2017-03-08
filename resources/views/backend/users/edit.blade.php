@@ -41,8 +41,7 @@
 
             <div class="form-group">
                 <strong>Address:</strong>
-                <textarea placeholder="Address" class="form-control" name="address"
-                          value="{{$item->address}}"></textarea>
+                <textarea placeholder="Address" class="form-control" name="address" >{{ old('address', $item->address) }}</textarea>
             </div>
 
             <div class="form-group">
@@ -59,7 +58,7 @@
                 <input placeholder="Avatar" class="form-control" name="avatar" type="file" value="{{$item->avatar}}">
             </div>
 
-            <img style="height: 150px;" src="{{ asset('/photo/'. $item->avatar) }}">
+            <img style="height: 150px;" src="{!! asset('/Image_backend/users/'.$item->avatar) !!}">
 
             <div class="form-group">
                 <strong>Birthday:</strong>

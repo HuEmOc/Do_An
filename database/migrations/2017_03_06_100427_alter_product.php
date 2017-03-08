@@ -17,8 +17,8 @@ class AlterProduct extends Migration
             $table->string('screen')->after('alias')->nullable();
             $table->string('operationSystem')->after('screen')->nullable();
             $table->string('cpu')->after('operationSystem')->nullable();
-            $table->double('ram')->after('cpu')->nullable();
-            $table->date('camera')->after('ram')->nullable();
+            $table->string('ram')->after('cpu')->nullable();
+            $table->string('camera')->after('ram')->nullable();
         });
     }
 

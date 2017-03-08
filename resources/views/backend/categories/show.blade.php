@@ -14,23 +14,34 @@
         </div>
 
     </div>
-    <table class="table">
-        <tr class="success">
-            <td>Name</td>
+    <table class="table  table-bordered  table-hover">
+        <tr>
+            <th>Name</th>
             <td>{{$categories->name }}</td>
         </tr>
-        <tr class="danger">
-            <td>Alias</td>
+        <tr>
+            <th>Alias</th>
             <td>{{$categories->alias }}</td>
         </tr>
 
-        <tr class="success">
-            <td>Key Word</td>
+        <tr>
+            <th>Order</th>
+            <td>{{ $categories->order }}</td>
+        </tr>
+
+        <tr>
+            <th>Parent_id</th>
+            <td>{{ $categories->parent_id }}</td>
+        </tr>
+
+        <tr>
+            <th>Key Word</th>
             <td>{{ $categories->keywords }}</td>
         </tr>
 
-        <tr class="danger">
-            <td>Description</td>
+
+        <tr>
+            <th>Description</th>
             <td> {{$categories->description }}</td>
         </tr>
 

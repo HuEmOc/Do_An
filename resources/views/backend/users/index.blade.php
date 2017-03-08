@@ -19,12 +19,12 @@
                     <!--Tao thong bao-->
                     <table class="table table-bordered">
                         <tr>
-                            <td>ID</td>
-                            <td>Name</td>
-                            <td>Email</td>
-                            <td>Address</td>
-                            <td>Avatar</td>
-                            <td>Action</td>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Avatar</th>
+                            <th>Action</th>
                         </tr>
 
                         @foreach($items as $key => $item)
@@ -33,8 +33,10 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
                                 <td>{{$item->address}}</td>
-                                <td><img src="{{ asset('photo/'. $item->avatar) }}"
-                                         style=" width: 100px ; text-align: center"></td>
+                                <td>
+                                    <img src="{!! asset('/Image_backend/users/'.$item->avatar) !!}"
+                                         style="width: 150px ; text-align: center">
+                                </td>
 
 
                                 <td style="width: 30%">

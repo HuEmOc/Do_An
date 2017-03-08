@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $items = User::paginate(2);
+        $items = User::paginate(4);
         return view('backend.users.index')->with(['items'=>$items]);
     }
 
@@ -47,7 +47,6 @@ class UserController extends Controller
             $file = $request->file('avatar');
             //getting timestamp
             $timestamp = time();
-
             $name = $timestamp . '.' . $file->getClientOriginalExtension();
             $file->move(public_path() . '/photo/', $name);
             $input['avatar'] = $name;
@@ -107,7 +106,7 @@ class UserController extends Controller
 
             $name = $timestamp . '.' . $file->getClientOriginalExtension();
 
-            $file->move(public_path() . '/avatar/', $name);
+            $file->move(public_path() . '/Image_frontend/users/', $name);
             $item->avatar = $name;
         }
         $item->save();

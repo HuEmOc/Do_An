@@ -1,7 +1,7 @@
 @extends('backend.default')
 @section('content')
-    <div class="panel panel-danger" style="margin-top: 5px">
-        <div class="panel-heading">Items CRUD</div>
+    <div class="panel panel-primary" style="margin-top: 5px">
+        <div class="panel-heading">Product</div>
         <div class="panel-body">
             <div class="col-md-12">
 
@@ -11,37 +11,49 @@
 
                         </div>
                         <div class="pull-right">
-                            <a class="btn btn-success" style="margin-top: 20px;" href="{{route('admin.create')}}">Create
-                                new product</a>
+                            <a class="btn btn-success" style="margin-top: 20px;" href="{{route('product.create')}}">Create
+                                new item</a>
                         </div>
 
                     </div>
                     <!--Tao thong bao-->
                     <table class="table table-bordered">
                         <tr>
-                            <td>ID</td>
-                            <td>Name</td>
-                            <td>Email</td>
-                            <td>Address</td>
-                            <td>Avatar</td>
-                            <td>Action</td>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Alias</th>
+                            <th>Screen</th>
+                            <th>Operation System</th>
+                            <th>Cpu</th>
+                            <th>Ram</th>
+                            <th>Camera</th>
+                            <th>Price</th>
+                            <th>Image</th>
+                            <th>Action</th>
                         </tr>
 
-                        @foreach($item as $key => $item)
+                        @foreach($items as $key => $item)
                             <tr>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->address}}</td>
-                                <td><img src="{{ asset('photo/'. $item->avatar) }}"
-                                         style=" width: 150px ; text-align: center"></td>
-
-
-                                <td style="width: 30%">
-                                    <a class="btn btn-info" href="{{route('admin.show',['id'=>$item->id])}}">Show</a>
-                                    <a class="btn btn-primary" href="{{route('admin.edit',['id'=>$item->id])}}">Edit</a>
+                                <td>{{$item->alias}}</td>
+                                <td>{{$item->screen}}</td>
+                                <td>{{$item->operationSystem}}</td>
+                                <td>{{$item->cpu}}</td>
+                                <td>{{$item->ram}}</td>
+                                <td>{{$item->camera}}</td>
+                                <td>{{$item->price}}</td>
+                                <td>
+                                    <img src="{!! asset('/Image_frontend/phone/'.$item->image) !!}"
+                                         style="width: 150px ; text-align: center">
+                                </td>
+                                <td style="width: 20%">
+                                    <a class="btn btn-info" href="{{route('product.show',['id'=>$item->id])}}">Show</a>
+                                    <a class="btn btn-primary"
+                                       href="{{route('product.edit',['id'=>$item->id])}}">Edit
+                                    </a>
                                     <form method="post" style="display: inline-block"
-                                          action="{{route('admin.destroy',['id'=>$item->id])}}">
+                                          action="{{route('product.destroy',['id'=>$item->id])}}">
                                         {!! csrf_field() !!}
                                         <input name="_method" value="delete" hidden>
                                         <button class="btn btn-danger" type="submit">
@@ -53,7 +65,7 @@
                         @endforeach
 
                     </table>
-
+                    {!! $items->render() !!}
 
                 </div>
             </div>

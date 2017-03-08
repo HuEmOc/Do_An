@@ -14,8 +14,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $item = Category::paginate(2);
-        return view('backend.categories.index')->with(['item'=>$item]);
+        $items = Category::paginate(5);
+        return view('backend.categories.index')->with(['items'=>$items]);
     }
 
     /**

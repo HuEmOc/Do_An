@@ -57,16 +57,26 @@
                             <h2>Thông số kĩ thuật</h2>
                         </div>
                         <div class="sb-block-content sb-products">
-                            a<br>
-                            a  a<br>
-                            a  a<br>  a<br>
-                            a  a<br>
-                            a  a<br>
-                            a  a<br>
-                            a  a<br>
-                            a<br>
-                            a<br><br>
-                            a a  a<br>
+
+                            <table border="1px">
+                                <tr>
+                                   <td>Screen : </td>
+                                    <td>Operation System : </td>
+                                    <td>Cpu : </td>
+                                    <td>Ram : </td>
+                                   <td>Camera : </td>
+                                 </tr>
+                                @foreach($products as $product)
+                                <tr>
+                                    <td>{{$product->screen}}</td>
+                                    <td>{{$product->operationSystem}}</td>
+                                    <td>{{$product->cpu}}</td>
+                                    <td>{{$product->ram}}</td>
+                                    <td>{{$product->camera}}</td>
+                                </tr>
+                                @endforeach
+                            </table>
+
 
                         </div>
                     </div>

@@ -36,6 +36,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware'=>'isroleadmin'],function (){
     Route::resource('admin','backend\UserController');
     Route::resource('categories','backend\CategoriesController');
+    Route::resource('product','backend\ProductController');
 });
 
                             //FRONTEND
@@ -79,3 +80,5 @@ Route::get('delete_cart','frontend\PhoneController@delete_cart');
 Route::get('remove_cart/{id}',['as' => 'remove_cart','uses' => 'frontend\PhoneController@remove_cart']);
 //pay
 Route::get('pay','frontend\PhoneController@pay');
+
+Route::get('abc/{id}','frontend\PhoneController@abc');

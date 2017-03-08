@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
                 $table->string('name',60);
                 $table->string('email',100);
                 $table->string('phone',60);
-                $table->string('addreass',60);
+                $table->string('address',60);
                 $table->integer('status');
                 $table->integer('total_qty');
                 $table->integer('total_price');

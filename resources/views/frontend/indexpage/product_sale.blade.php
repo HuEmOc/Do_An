@@ -13,7 +13,7 @@
                                         <div class="product-item">
                                             <div class="product-item-image">
                                                 <a href="{!! url('detail') !!}">
-                                                    <img class="img-responsive" src="{!! asset('upload/'.$product_sale->image) !!}">
+                                                    <img class="img-responsive" src="{!! asset('/Image_frontend/phone/'.$product_sale->image) !!}">
                                                 </a>
                                             </div>
                                             <a class="product-item-name" href="{!! url('/'.$product_sale->alias) !!}">{!! $product_sale->name !!}</a>

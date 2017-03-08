@@ -13,7 +13,7 @@
                                     <div class="item">
                                         <div class="product-item">
                                             <div class="product-item-image"> <a href="{!! url('detail') !!}">
-                                                    <img class="img-responsive" src="{!! asset('/upload/'.$product_sell->image) !!}" > </a> </div>
+                                                    <img class="img-responsive" src="{!! asset('/Image_frontend/phone/'.$product_sell->image) !!}" > </a> </div>
                                             <a class="product-item-name" href="{!! url('/'.$product_sell->alias) !!}">{!! $product_sell->name !!}</a>
                                             <div>
                                                 @if($product_sell->pricesale > 0)

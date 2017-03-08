@@ -14,29 +14,32 @@
         </div>
 
     </div>
-    <table class="table">
-        <tr class="success">
-            <td>Name</td>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Name</th>
             <td>{{ $item->name }}</td>
         </tr>
-        <tr class="danger">
-            <td>Email</td>
+        <tr>
+            <th>Email</th>
             <td>{{$item->email }}</td>
         </tr>
-        <tr class="success">
-            <td>Address</td>
+        <tr>
+            <th>Address</th>
             <td> {{$item->address }}</td>
         </tr>
 
 
-        <tr class="danger">
-            <td>Birthday</td>
+        <tr>
+            <th>Birthday</th>
             <td>{{ $item->birthday }}</td>
         </tr>
         <tr class="">
-            <td>Avatar</td>
-            <td><img src="{{ asset('photo/'. $item->avatar) }}"
-                     style="width: 150px ; text-align: center"></td>
+            <th>Avatar</th>
+            <td>
+                <img src="{!! asset('/Image_backend/users/'.$item->avatar) !!}"
+                     style="width: 150px ; text-align: center">
+            </td>
+
         </tr>
     </table>
 </div>
