@@ -387,8 +387,8 @@ a:focus {
 	font-size: 12px;
     margin: 15px 0 0 0;
     padding: 0;
-    color: #999999;
-    text-decoration: line-through;
+    background-color: #ff9601;
+    color: #fff;
 }
 .product-item-sale {
     position: absolute;
@@ -664,7 +664,7 @@ a:focus {
     color: #507dc0;
 }
 .block-social .fa-twitter-square {
-    color: ##62cdf1;
+    color: #62cdf1;
 }
 .block-social .fa-google-plus-square {
     color: #898989;
@@ -697,7 +697,6 @@ a:focus {
     position: relative;
     margin: 0 15%;
     padding-bottom: 68px;
-    background-image: url(bg-newsletter.png);
     background-repeat: no-repeat;
     background-position: bottom center;
     text-align: center;
@@ -826,7 +825,7 @@ a:focus {
     margin: 7px 0 0 0;
 }
 .footer-bottom p a {
-    font-size: bold;
+   // font-size: bold;
     color: #3c8dbc;
 }
 .breadcrumb {

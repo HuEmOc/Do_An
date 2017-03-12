@@ -1,4 +1,3 @@
-
 <section class="section section-hot-new">
     <div class="container">
         <div class="row">
@@ -14,13 +13,23 @@
                                         <div class="product-item">
                                             <div class="product-item-image">
                                                 <a href="{!! url('detail') !!}">
-                                                <img class="img-responsive" src="{!! asset('/Image_frontend/phone/'.$product_new->image) !!}" >
+                                                    <img class="img-responsive"
+                                                         src="{!! asset('/Image_frontend/phone/'.$product_new->image) !!}">
                                                 </a>
                                             </div>
-                                            <a class="product-item-name" href="{!! url('/'.$product_new->alias) !!}">{!! $product_new->name !!}</a>
+                                            <a class="product-item-name"
+                                               href="{!! url('/'.$product_new->alias) !!}">{!! $product_new->name !!}</a>
                                             <div>
-                                                @if($product_new->pricesale > 0)
-                                                    <p class="product-item-price"> <?php echo number_format($product_new->price,0,',','.') ?>đ<span class="product-item-price-sale"> <?php echo number_format($product_new->pricesale,0,',','.') ?>đ </span> </p>
+                                                @if (!is_null($product_new->sale_id))
+                                                    <p class="product-item-price">
+                                                        <?php echo number_format($product_new->price * (100- $product_new->relation_sale->percent)/100,0,',', '.') ?>đ
+                                                        <span class="product-item-price-sale">
+                                                                {{'-'.$product_new->relation_sale->percent.'%'}}
+                                                            </span>
+                                                        <span class="price-regular">
+                                                                 <?php echo number_format($product_new->price, 0, ',', '.') ?> đ
+                                                            </span>
+                                                    </p>
                                                 @else
                                                     <p class="product-item-price"><?php echo number_format($product_new->price,0,',','.') ?>đ </p>
                                                 @endif

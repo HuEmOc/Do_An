@@ -18,15 +18,16 @@
 
                     <tbody>
                     @foreach($rows as $row )
-
                         <tr>
-                            <td><img src="@if (!$row->options->isEmpty()){!! asset('/upload/'.$row->options->image)!!}@endif" width="40"></td>
-                            <td><a href=" @if (!$row->options->isEmpty()){!! url('/',[$row->options->alias]) !!}@endif">{!! $row->name !!}</a></td>
+                            <td>@if (!$row->options->isEmpty())<img src="{!! asset('/Image_frontend/phone/'.$row->options->cart->image)!!}" width="40">@endif</td>
+                            <td>@if (!$row->options->isEmpty())<a href="{!! url('/',[$row->options->cart->alias]) !!}">{!! $row->name !!}</a>@endif</td>
                             <td>
-                               {{number_format($row->price, '0', ',', '.')}}đ
+                                <?php echo number_format($row->price, 0, ',', '.') ?> đ
                             </td>
                             <td>{{$row->qty}}</td>
-                            <td>{{$row->total}}</td>
+                            <td>
+                                <?php echo number_format($row->total, 0, ',', '.') ?> đ
+                            </td>
                             <td>
                                 <a class="fa fa-trash-o item-remove"  href="{!! url('remove_cart',['id'=>$row->rowId])!!}" ></a>
                             </td>

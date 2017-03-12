@@ -81,4 +81,5 @@ Route::get('remove_cart/{id}',['as' => 'remove_cart','uses' => 'frontend\PhoneCo
 //pay
 Route::get('pay','frontend\PhoneController@pay');
 
-Route::get('abc/{id}','frontend\PhoneController@abc');
+Route::get('rate/{id}','frontend\PhoneController@rate');
+Route::get('sale','frontend\PhoneController@sale');

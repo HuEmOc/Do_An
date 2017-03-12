@@ -22,7 +22,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Alias</th>
-                            <th>Screen</th>
+                            <th>Scree</th>
                             <th>Operation System</th>
                             <th>Cpu</th>
                             <th>Ram</th>
@@ -35,7 +35,7 @@
                         @foreach($items as $key => $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->name}}</td>
+                                <td>{{$item['name']}}</td>
                                 <td>{{$item->alias}}</td>
                                 <td>{{$item->screen}}</td>
                                 <td>{{$item->operationSystem}}</td>

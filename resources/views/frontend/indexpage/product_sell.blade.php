@@ -12,20 +12,16 @@
                                 <div class="owl-item" style="width: 210px;" data-id="{!! $product_sell->id !!}">
                                     <div class="item">
                                         <div class="product-item">
-                                            <div class="product-item-image"> <a href="{!! url('detail') !!}">
-                                                    <img class="img-responsive" src="{!! asset('/Image_frontend/phone/'.$product_sell->image) !!}" > </a> </div>
+                                            <div class="product-item-image">
+                                                <a href="{!! url('detail') !!}">
+                                                <img class="img-responsive" src="{!! asset('/Image_frontend/phone/'.$product_sell->image) !!}" ></a>
+                                            </div>
                                             <a class="product-item-name" href="{!! url('/'.$product_sell->alias) !!}">{!! $product_sell->name !!}</a>
                                             <div>
-                                                @if($product_sell->pricesale > 0)
-                                                    <p class="product-item-price"> <?php echo number_format($product_sell->price,0,',','.') ?>đ<span class="product-item-price-sale"> <?php echo number_format($product_sell->pricesale,0,',','.') ?>đ </span> </p>
-                                                @else
                                                     <p class="product-item-price"><?php echo number_format($product_sell->price,0,',','.') ?>đ </p>
-                                                @endif
-                                                    <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_sell->id !!}"><span></span>Thêm vào giỏ</a> </div>
+                                                    <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_sell->id !!}"><span></span>Thêm vào giỏ</a>
+                                            </div>
 
-                                            @if($product_sell->pricesale > 0)
-                                                <span class="product-item-sale"></span>
-                                            @endif
                                         </div>
                                     </div>
                                 </div>

@@ -66,7 +66,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $items = Product::find($id);
-        //dd($item);
+        //dd($items);
         return view('backend.products.show')->with(['items'=>$items]);
     }
 

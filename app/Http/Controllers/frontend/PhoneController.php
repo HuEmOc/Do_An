@@ -25,12 +25,13 @@ class PhoneController extends Controller
     {
         //get all the information in the product
         $product_news = Product::orderBy('id', 'DESC')->get();
-        $product_sales = Product::orderBy('id', 'DESC')->get();
-        // dd($product_sales);
+        $product_sales = Product::leftJoin('sales','sales.id','=','products.sale_id')->select('products.*', 'sales.percent','sales.from','sales.to')->get();
+        //dd($product_sales);
         $product_sells = Product::all();
         return view('frontend.index', compact('product_news', 'product_sales', 'product_sells'));
         // return view('frontend.index')->with(['product_news'=>$product_news,'product_sales'=>$product_sales]);
-        //$product_list = Product::all();
+
+
     }
 
     /**
@@ -108,6 +109,7 @@ class PhoneController extends Controller
     public function cart()
     {
         $rows = Cart::content();
+//        dd($rows);
         return view('frontend.subpage.cart')->with(['rows'=>$rows]);
     }
 
@@ -150,8 +152,13 @@ class PhoneController extends Controller
             return (Cart::count()) ;
         }
         $add_cart = Product::findOrFail($id);
-        Cart::add($add_cart->id, $add_cart->name, 1, $add_cart->price);
-        return (Cart::count()) ;
+        if (is_null($add_cart->relation_sale)) {
+            $price = $add_cart->price;
+        }else{
+            $price = $add_cart->price * (100 - $add_cart->relation_sale->percent) / 100;
+        }
+         Cart::add($add_cart->id, $add_cart->name, 1,$price, array('cart' => $add_cart));
+         return (Cart::count()) ;
         //return redirect()->route('giohang');
     }
 //hủy giỏ hàng
@@ -199,10 +206,17 @@ class PhoneController extends Controller
     }
 
 
-
-    public function abc($id){
-        $product = rate::find($id)->name;
-        dd($product);
+    public function rate($id){
+        $rate = rate::find($id);
+        $productofRate = $rate ->product;
+        dd($productofRate);
     }
 
+
+    public function sale(){
+        $product = Product::where('sale_id','2')->first();
+       // dd($product);
+        $saleOfProduct = $product ->relation_sale;
+        dd($saleOfProduct);
+    }
 }

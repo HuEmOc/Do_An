@@ -71,6 +71,28 @@
             from {bottom: 30px; opacity: 1;}
             to {bottom: 0; opacity: 0;}
         }
+
+        .product-item-price-sale {
+            background-color: #ff9601;
+            color: #fff;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 400;
+            margin-left: 5px;
+            margin-top: -2px;
+            padding: 5px;
+            vertical-align: middle;
+            text-decoration: none;
+        }
+        .price-regular{
+            font-size: 11px;
+            color: #999;
+            text-decoration: line-through;
+            display: block;
+            text-align: left;
+            padding-top: 5px;
+            padding-left: 40px;
+        }
     </style>
 </head>
 <body>
