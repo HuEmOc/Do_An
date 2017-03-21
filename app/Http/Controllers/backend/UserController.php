@@ -96,6 +96,7 @@ class UserController extends Controller
         $item->email = $request->email;
         $item->address = $request->address;
         $item->gender = $request->gender;
+        dd($item->gender);
         $item->avatar = $request->avatar;
         $item->birthday = $request->birthday;
         if ($request->hasFile('avatar')) {

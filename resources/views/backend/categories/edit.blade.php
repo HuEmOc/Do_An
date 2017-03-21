@@ -37,29 +37,28 @@
 
             <div class="form-group">
                 <strong>Alias:</strong>
-                <input placeholder="Email" class="form-control" name="email" type="text"
+                <input placeholder="Alias" class="form-control" name="alias" type="text"
                        value="{{$item->alias}}">
             </div>
 
             <div class="form-group">
                 <strong>Order:</strong>
-                <textarea placeholder="Address" class="form-control" name="address"
-                          value="{{$item->order}}"></textarea>
+                <input placeholder="Address" class="form-control" name="order"
+                          value="{{$item->order}}">
             </div>
             <div class="form-group">
                 <strong>Parent_id:</strong>
-                <textarea placeholder="Address" class="form-control" name="address"
-                          value="{{$item->parent_id}}"></textarea>
+                <input placeholder="Address" class="form-control" name="parent_id"
+                          value="{{$item->parent_id}}">
             </div>
             <div class="form-group">
                 <strong>Key words:</strong>
-                <textarea placeholder="Address" class="form-control" name="address"
-                          value="{{$item->keywords}}"></textarea>
+                <input placeholder="Key words" class="form-control" name="keywords"
+                          value="{{$item->keywords}}">
             </div>
             <div class="form-group">
                 <strong>Description:</strong>
-                <textarea placeholder="Address" class="form-control" name="address"
-                          value="{{$item->description}}"></textarea>
+                <textarea placeholder="Description" class="form-control" name="description" >{{ old('description', $item->description) }}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" style="margin-left: 15px;margin-top: 10px">Submit</button>

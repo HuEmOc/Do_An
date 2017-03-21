@@ -29,7 +29,7 @@
 
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="">
-                <h2 class="block-title">New phone</h2>
+                <h2 class="block-title">Phone</h2>
                 <div class="block-content">
                     <div class="owl-product owl-carousel" style="display: inline">
                         <div ng-repeat="phone in phoneList | filter: searchKeyword">
@@ -39,12 +39,20 @@
                                     <div class="product-item">
                                         <div class="product-item-image">
                                             <a href="">
-                                                <img class="img-responsive" src="{{asset('/upload/')}}/@{{phone.image }}">
+                                                <img class="img-responsive" src="{{asset('/Image_frontend/phone/')}}/@{{phone.image }}">
                                             </a>
                                         </div>
                                         <a class="product-item-name">@{{ phone.name }}</a>
+                                        <div ng-if = @{{phone.sale_id === 1}}>
+                                                <p class="product-item-price">
+                                                    abc
+                                                </p>
+                                        </div>
+                                        <div ng-if = @{{ phone.sale_id != 'null' }} >
+                                            <?php echo 'nothing'?>
+                                        </div>
                                         <div>
-                                            <a class="product-item-cart add_to_cart" href="javascript:void(0)" data-id=""><span></span>Thêm vào giỏ</a>
+                                            <a class="product-item-cart add_to_cart" href="javascript:void(0)" data-id="@{{phone.id}}"><span></span>Thêm vào giỏ</a>
                                         </div>
 
                                     </div>

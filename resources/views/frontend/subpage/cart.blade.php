@@ -17,33 +17,57 @@
                     </thead>
 
                     <tbody>
+                    <?php $subtotal = 0;?>
                     @foreach($rows as $row )
                         <tr>
-                            <td>@if (!$row->options->isEmpty())<img src="{!! asset('/Image_frontend/phone/'.$row->options->cart->image)!!}" width="40">@endif</td>
-                            <td>@if (!$row->options->isEmpty())<a href="{!! url('/',[$row->options->cart->alias]) !!}">{!! $row->name !!}</a>@endif</td>
+                            <td>
+                                @if (!$row->options->isEmpty())
+                                    <img width="40"
+                                         src="{!! asset('/Image_frontend/phone/'.$row->options->cart->image)!!}">
+                                @endif
+                            </td>
+                            <td>
+                                @if (!$row->options->isEmpty())
+                                    <a href="{!! url('/',[$row->options->cart->alias]) !!}">{!! $row->name !!}</a>
+                                @endif
+                            </td>
                             <td>
                                 <?php echo number_format($row->price, 0, ',', '.') ?> đ
                             </td>
-                            <td>{{$row->qty}}</td>
+                            <td>
+                                {{$row->qty}}
+                            </td>
                             <td>
                                 <?php echo number_format($row->total, 0, ',', '.') ?> đ
                             </td>
                             <td>
-                                <a class="fa fa-trash-o item-remove"  href="{!! url('remove_cart',['id'=>$row->rowId])!!}" ></a>
+                                <a class="fa fa-trash-o item-remove"
+                                   href="{!! url('remove_cart',['id'=>$row->rowId])!!}"></a>
                             </td>
                         </tr>
+                        <?php $subtotal += $row->total; ?>
                     @endforeach
-                            <tr>
-                                <td colspan="6">
-                                    <div class="pull-left">
-                                        <a class="comment-submit" href="{!! url('/phone') !!}" >Tiếp tục mua sắm</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a class="comment-submit" href="{!! url('delete_cart') !!}">Hủy giỏ hàng</a>
-                                        <a class="comment-submit" href="{!! url('pay') !!}">Thanh toán</a>
-                                    </div>
-                                </td>
-                            </tr>
+
+                    <tr>
+                        <td colspan="6">
+                            <div class="pull-right">
+                                Total :<span class="tong_cart">
+							                 <?php echo number_format($subtotal, 0, ',', '.')?>
+							           </span>đ
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <div class="pull-left">
+                                <a class="comment-submit" href="{!! url('/phone') !!}">Tiếp tục mua sắm</a>
+                            </div>
+                            <div class="pull-right">
+                                <a class="comment-submit" href="{!! url('delete_cart') !!}">Hủy giỏ hàng</a>
+                                <a class="comment-submit" href="{!! url('pay') !!}">Thanh toán</a>
+                            </div>
+                        </td>
+                    </tr>
                     </tbody>
 
                     <tfoot>

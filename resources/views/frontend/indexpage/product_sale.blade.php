@@ -13,25 +13,32 @@
                                     <div class="item">
                                         <div class="product-item">
                                             <div class="product-item-image">
-                                                <a href="{!! url('detail') !!}">
+                                                <a href="{!! url('/'.$product_sale->alias) !!}">
                                                     <img class="img-responsive" src="{!! asset('/Image_frontend/phone/'.$product_sale->image) !!}">
                                                 </a>
                                             </div>
                                             <a class="product-item-name"
                                                href="{!! url('/'.$product_sale->alias) !!}">{!! $product_sale->name !!}
                                             </a>
+
                                             <div>
-                                                 <p class="product-item-price">
-                                                     <?php echo number_format($product_sale->price * (100- $product_sale->percent)/100,0,',', '.') ?>đ
+                                                @if (!is_null($product_sale->sale_id))
+                                                    <p class="product-item-price">
+                                                        <?php echo number_format($product_sale->price * (100- $product_sale->percent)/100,0,',', '.') ?>đ
                                                         <span class="product-item-price-sale">
-                                                            {{'-'.$product_sale->percent.'%'}}
-                                                        </span>
+                                                                {{'-'.$product_sale->percent.'%'}}
+                                                            </span>
                                                         <span class="price-regular">
-                                                             <?php echo number_format($product_sale->price, 0, ',', '.') ?> đ
-                                                        </span>
-                                                </p>
+                                                                 <?php echo number_format($product_sale->price, 0, ',', '.') ?> đ
+                                                            </span>
+                                                    </p>
+                                                @else
+                                                    <p class="product-item-price"><?php echo number_format($product_sale->price,0,',','.') ?>đ </p>
+                                                @endif
                                                 <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_sale->id !!}"><span></span>Thêm vào giỏ</a>
                                             </div>
+
+
                                         </div>
                                     </div>
                                 </div>

@@ -40,23 +40,19 @@ Route::group(['middleware'=>'isroleadmin'],function (){
 });
 
                             //FRONTEND
-// home
-Route::get('phone','frontend\PhoneController@index');
+// --HomeController
+//home
+Route::get('phone','frontend\HomeController@index');
 
-//category
 
-Route::group(['prefix'=>'frontend_categories'],function (){
-    Route::get('list','frontend\PhoneController@categories');
-    Route::get('demo1','frontend\PhoneController@demo1');
-});
 
-Route::get('danh-muc/{alias}',['as' => 'cateparent','uses' => 'frontend\PhoneController@cateparent']);
+Route::get('frontend_categories','frontend\PhoneController@categories');
+//categories_product
+Route::get('list_categories/{alias}',['as' => 'cateparent','uses' => 'frontend\PhoneController@cateparent']);
+//detail_product
 
-//order_detail
-Route::get('detail','frontend\PhoneController@detail');
 
-//test
-Route::get('test','frontend\PhoneController@demo');
+
 //using facebook
 Route::get('/redirect', 'SocialAuthController@redirect');
 Route::get('/callback', 'SocialAuthController@callback');
@@ -65,20 +61,24 @@ Route::get('/callback', 'SocialAuthController@callback');
 Route::get('cate','backend\CategoriesController@show');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-//Search
-Route::get('home','frontend\PhoneController@theme');
-Route::get('search','frontend\PhoneController@search');
+// -- SearchController
+Route::get('home','frontend\SearchController@theme');
+Route::get('search','frontend\SearchController@search');
 
 
 //Contacts
 Route::get('contact','frontend\PhoneController@contact');
 
-//cart
-Route::get('cart',['as' =>'cart', 'uses' =>'frontend\PhoneController@cart']);
-Route::get('addtocart/{id?}','frontend\PhoneController@addtocart');
-Route::get('delete_cart','frontend\PhoneController@delete_cart');
-Route::get('remove_cart/{id}',['as' => 'remove_cart','uses' => 'frontend\PhoneController@remove_cart']);
+//-- CartController
+Route::get('cart',['as' =>'cart', 'uses' =>'frontend\CartController@cart']);
+Route::get('addtocart/{id?}','frontend\CartController@addtocart');
+Route::get('delete_cart','frontend\CartController@delete_cart');
+Route::get('remove_cart/{id}',['as' => 'remove_cart','uses' => 'frontend\CartController@remove_cart']);
 //pay
+
+
+Route::get('{alias}',['as'=> 'detail','uses'=>'frontend\PhoneController@detail']);
+
 Route::get('pay','frontend\PhoneController@pay');
 
 Route::get('rate/{id}','frontend\PhoneController@rate');

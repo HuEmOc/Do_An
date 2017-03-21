@@ -77,7 +77,17 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Category::find($id);
+        $item->name = $request->name;
+        $item->alias = $request->alias;
+        $item->order = $request->order;
+        $item->parent_id = $request->parent_id;
+        $item->keywords = $request->keywords;
+        //dd($item->keywords);
+        $item->description = $request->description;
+        $item->save();
+        return redirect()->route('categories.index')
+            ->with('success', 'categories create successfully');
     }
 
     /**

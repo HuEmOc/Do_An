@@ -72,11 +72,11 @@
                         <ul>
                             <li class="@yield('trangchu')"><a href="{!! url('/phone') !!}">Home </a> </li>
                             <li> <a href="#">Introduce</a> </li>
-                            <li class="@yield('sanpham')"> <a href="{!! url('frontend_categories/list') !!}">Product<i class="fa fa-caret-down"></i></a>
+                            <li class="@yield('sanpham')"> <a href="{!! url('frontend_categories') !!}">Product<i class="fa fa-caret-down"></i></a>
                                 <ul>
                                     <?php $menus = DB::table('categories')->select('id','name','alias','parent_id')->where('parent_id',0)->orderBy('id','DESC')->get(); ?>
                                     @foreach ($menus as $menu)
-                                        <li><a href="{!! url('danh-muc',[$menu->alias]) !!}">{!! $menu->name !!}</a>
+                                        <li><a href="{!! url('list_categories',[$menu->alias]) !!}">{!! $menu->name !!}</a>
                                             <?php $parent = DB::table('categories')->select('id','name','alias','parent_id')->where('parent_id',$menu->id)->orderBy('id','DESC')->get(); ?>
                                             <ul>
                                                 @foreach($parent as $parents)

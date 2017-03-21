@@ -11,4 +11,8 @@ class Product extends Model
     public function relation_sale(){
         return $this ->hasOne('App\sale','id','sale_id');
     }
+    public function relation_categories(){
+        return $this ->hasOne('App\sale','id','sale_id');
+    }
+
 }

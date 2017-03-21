@@ -93,6 +93,36 @@
             padding-top: 5px;
             padding-left: 40px;
         }
+        .parameter{
+            display: block;
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+            padding-top: 10px;
+        }
+        .parameter li{
+            display: table;
+            background: #fff;
+            width: 100%;
+            border-top: 1px solid #eee;
+            padding: 5px 0;
+        }
+        .parameter li span{
+            display: table-cell;
+            width: 40%;
+            vertical-align: top;
+            padding: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .parameter li div {
+            display: table-cell;
+            width: auto;
+            vertical-align: top;
+            padding: 6px 5px;
+            font-size: 14px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -136,7 +166,7 @@
 <script>
     var i;
     $.ajax({
-        url: 'addtocart',
+        url: '/addtocart',
         success: function (data) {
             i = data;
             $('#total_product').html(i + ' Product');

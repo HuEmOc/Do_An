@@ -62,7 +62,7 @@
 
             <div class="form-group">
                 <strong>Birthday:</strong>
-                <input id="birthday" type="date" class="form-control" name="birthday" value="{{ old('birthday') }}" required autofocus
+                <input id="birthday" type="date" class="form-control" name="birthday" value="{{ \Carbon\Carbon::parse(old('birthday'))->format('y-m-d')  }}" required autofocus>
             </div>
             <button type="submit" class="btn btn-primary" style="margin-left: 15px;margin-top: 10px">Submit</button>
         </form>
