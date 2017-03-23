@@ -10,4 +10,7 @@ class Category extends Model
     protected $fillable = [
         'name', 'alias', 'order','parent_id','keywords','description',
     ];
+    public function cate_relation_product(){
+       return $this->hasMany('App\Product','cate_id','id');
+    }
 }

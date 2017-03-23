@@ -18,52 +18,26 @@ use DB;
 
 class PhoneController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-//giỏ hàng
-    public function cart()
-    {
-        $rows = Cart::content();
-   // dd($rows);
-        return view('frontend.subpage.cart')->with(['rows'=>$rows]);
-    }
 
 //chi tiết sản phẩm
     public function detail($alias)
     {
         $item_products = Product::where('alias',$alias)->firstorFail();
         $categories_products = Category::where('id',$item_products->cate_id)->firstorFail();
-       // dd($item_products);
-        return view('frontend.subpage.detail')->with(['item_products'=>$item_products,'categories_products'=>$categories_products]);
-    }
-
-
-
-
-    public function test($id = null){
-        if(is_null($id)){
-            return  Cart::count();
+        $quantitySaled = $this->countQuantity($item_products->id);
+        if ($item_products->quantity - $quantitySaled > 0) {
+            $status = 'Còn Hàng';
+        } else {
+            $status = 'Hết Hàng';
         }
-        $cart = Product::find($id);
-        Cart::add($cart->id, $cart->name, 1, $cart->price);
-        return  Cart::count();
+        return view('frontend.subpage.detail')->with(['item_products'=>$item_products,'categories_products'=>$categories_products, 'status' => $status]);
     }
 
 
-//thanh toán
-    public function pay(){
-        $pays = Cart::content();
-        //dd($pays);
-        return view('frontend.subpage.pay')->with(['$pays'=>$pays]);
-    }
 //danh mục sản phẩm
     public function categories(){
         $categories = Category::where('parent_id',0)->get();
-        $products = Product::orderBy('id', 'DESC')->paginate(2);
+        $products = Product::orderBy('id', 'DESC')->paginate(5);
         $product_sells = detailOrder::with('order')->whereHas('order', function ($detail) {
             $detail->where('status', 1);
         })->get();
@@ -72,46 +46,21 @@ class PhoneController extends Controller
 
     public function cateparent($alias){
         $categories = Category::where('parent_id',0)->orderBy('id','DESC')->get();
-        $products = DB::table('categories')
-            ->join('products', 'categories.id', '=', 'products.cate_id')
-            ->select('categories.alias','products.*')->where('categories.alias',$alias)->groupBy('categories.alias','products.alias')
-            ->paginate(2);
+        $cate_product = Category::where('alias', $alias)->first();
+        $products = $cate_product->cate_relation_product;
         $product_sells = detailOrder::with('order')->whereHas('order', function ($detail) {
             $detail->where('status', 1);
         })->get();
-       // dd($products);
-
-
-      //  $cate_products = Product::with('relation_categories')->whereHas('relation_categories', function ($cate) {
-       //     $cate->groupBy('categories.alias','products.alias');
-       // })->get();
-
-
-
         $namecate = Category::where('alias',$alias)->first();
-       // dd($namecate);
         return view('frontend.subpage.cateparent',compact('products','categories','namecate','product_sells'));
     }
 
-    public function demo1(){
-        return view('frontend.subpage.demo');
-    }
-
-    //contact
-    public function contact(){
-        return view('frontend.subpage.contact');
-    }
-
-
-    public function rate($id){
-        $rate = rate::find($id);
-        $productofRate = $rate ->product;
-    }
-
-
-    public function sale(){
-        $product = Product::where('sale_id','2')->first();
-        $saleOfProduct = $product ->relation_sale;
-        dd($saleOfProduct);
+    public function countQuantity ($product_id) {
+        $total = detailOrder::where('product_id', $product_id)->where('status', 2)->get();
+        $quantity = 0;
+        foreach ($total as $item) {
+            $quantity += $item->quantity;
+        }
+        return $quantity;
     }
 }

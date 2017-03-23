@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -26,7 +27,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('backend.products.create');
+        $listCategories = $this->categorySelectBox();
+        return view('backend.products.create')->with(['list_cat' => $listCategories]);
 
     }
 
@@ -123,8 +125,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function categorySelectBox () {
+        $categories = Category::all();
+        $categoriesHtml = '';
+        foreach ($categories as $category) {
+            $categoriesHtml .= '<option value="'.$category->id.'">' . $category->name . '</option>';
+        }
+        return $categoriesHtml;
     }
 }

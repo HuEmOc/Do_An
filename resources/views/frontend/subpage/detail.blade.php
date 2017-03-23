@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-md-8">
                             <h1 class="product-name">{{($item_products->name)}}</h1>
-                            <p class="product-availability">Tình trạng: <span> Còn hàng </span></p>
+                            <p class="product-availability">Tình trạng: <span> {{$status}} </span></p>
 
 
                             <p class="product-price">

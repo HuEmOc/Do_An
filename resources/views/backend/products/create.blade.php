@@ -113,9 +113,10 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Categories_id:</strong>
-                                <input placeholder="cate_id" class="form-control" name="cate_id" type="text"
-                                       value="{{old('cate_id')}}">
+                                <strong>Categories:</strong>
+                                <select class="form-control" name="cate_id">
+                                    {!! $list_cat !!}
+                                </select>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">

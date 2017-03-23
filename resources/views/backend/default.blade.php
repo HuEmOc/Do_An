@@ -170,6 +170,15 @@
                     </ul>
                 </li>
 
+                <li class=" treeview">
+                    <a href="{{url('orders')}}">
+                        <i class="fa fa-dashboard"></i> <span>Order</span>
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                </li>
+
 
 
             </ul>
