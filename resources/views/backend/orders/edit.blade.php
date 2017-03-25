@@ -9,7 +9,7 @@
                         <h2>Edit Order</h2>
                     </div>
                     <div class="pull-right">
-                        <a class="btn btn-primary" style="margin-top: 15px;" href="{{route('orders.index')}}"> Back</a>
+                        <a class="btn btn-primary" style="margin-top: 15px;" href="{{route('order.index')}}"> Back</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                             </ul>
                         @endif
                     </div>
-                    <form method="post" enctype="multipart/form-data" action="{{route('orders.update',['id'=>$item->id])}}">
+                    <form method="post" enctype="multipart/form-data" action="{{route('order.update',['id'=>$item->id])}}">
                         <input name="_method" value="put" type="hidden">
                         {!! csrf_field() !!}
 
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="form-group">
-                            <strong>status :</strong>
+                            <strong>Status :</strong>
                             <select class="form-control" name="status">
                                 <option value="0" @if($item->status === 0) selected @endif>Pending</option>
                                 <option value="1" @if($item->status === 1) selected @endif>Waiting</option>

@@ -38,7 +38,6 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        //dd($request->all());
         $input = $request->only([
             'name', 'email', 'address','gender','avatar','birthday','password'
         ]);
@@ -66,7 +65,6 @@ class UserController extends Controller
     public function show($id)
     {
         $item = User::find($id);
-        //dd($item);
         return view('backend.users.show')->with(['item'=>$item]);
     }
 

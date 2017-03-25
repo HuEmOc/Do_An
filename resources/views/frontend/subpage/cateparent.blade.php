@@ -31,7 +31,7 @@
                                         <a href="{!! url('list_categories',[$category->alias]) !!}">{!! $category->name !!}</a>
                                         <?php $parents = DB::table('categories')->select('id', 'name', 'alias', 'parent_id')->where('parent_id', $category->id)->orderBy('id', 'DESC')->get(); ?>
                                         @foreach($parents as $parent)
-                                            <a href="">&nbsp;&nbsp;&raquo;&nbsp;&nbsp;{{$parent->name}}</a>
+                                            <a href="{{url('list_categories',[$parent->alias])}}">&nbsp;&nbsp;&raquo;&nbsp;&nbsp;{{$parent->name}}</a>
                                         @endforeach
                                     </li>
                                 @endforeach

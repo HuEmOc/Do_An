@@ -98,6 +98,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Category::find($id);
+        $item->delete();
+        return redirect()->route('categories.index')->with('success','Categories remove successfully');
     }
 }

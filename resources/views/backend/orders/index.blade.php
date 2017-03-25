@@ -23,17 +23,35 @@
                         <td>{{$item->email}}</td>
                         <td>{{$item->phone}}</td>
                         <td>{{$item->address}}</td>
-                        <td>{{$item->status}}</td>
+                        <td>
+                            @if($item->status === 0)
+                                {!! 'Pending' !!}
+                            @elseif($item->status ===1)
+                                {!! 'Waiting' !!}
+                            @elseif($item->status ===2)
+                                {!! 'Success' !!}
+                            @elseif($item->status ===3)
+                                {!! 'Fail' !!}
+                            @endif
+                        </td>
                         <td>{{$item->total_qty}}</td>
                         <td>{{number_format($item->total_price)}}</td>
                         <td style="width: 20%">
-                            <a class="btn btn-info" href="{{route('orders.edit',['id'=>$item->id])}}">EDIT</a>
+                            <a class="btn btn-info" href="{{route('order.show',['id'=>$item->id])}}">Show</a>
+                            <a class="btn btn-info" href="{{route('order.edit',['id'=>$item->id])}}">Edit</a>
+                            <form method="post" style="display: inline-block"
+                                  action="{{route('order.destroy',['id'=>$item->id])}}">
+                                {!! csrf_field() !!}
+                                <input name="_method" value="delete" hidden>
+                                <button class="btn btn-danger" type="submit">
+                                    Delete
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
 
             </table>
-
 
 
             {!! $list_orders->render() !!}

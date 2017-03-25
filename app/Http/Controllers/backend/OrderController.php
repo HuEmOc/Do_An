@@ -15,18 +15,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $list_orders = Order::paginate(10);
+        $list_orders = Order::paginate(5);
         return view('backend.orders.index', compact('list_orders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('backend.orders.create');
     }
 
     /**
@@ -37,7 +32,9 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->only([
+            'name', 'alias', 'screen','operationSystem','cpu','ram','camera','price','keyword','description','cate_id','sale_id'
+        ]);
     }
 
     /**
@@ -48,7 +45,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $items = Order::find($id);
+        return view('backend.orders.show', compact('items'));
     }
 
     /**
@@ -60,7 +58,6 @@ class OrderController extends Controller
     public function edit($id)
     {
         $item = Order::find($id);
-        //dd($item);
         return view('backend.orders.edit', compact('item'));
     }
 
@@ -85,6 +82,12 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item= Order::find($id);
+        if($item->status == 3){
+            $item->delete();
+        }
+        else
+             return redirect()->route('order.index')
+            ->with('success','order deleted');
     }
 }

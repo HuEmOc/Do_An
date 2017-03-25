@@ -29,6 +29,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ngInfiniteScroll/1.3.0/ng-infinite-scroll.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         #snackbar {
             visibility: hidden;
@@ -175,7 +177,7 @@
     function myShow(element) {
         console.log($(element).attr('data-id'));
         $.ajax({
-            url: 'addtocart/' + $(element).attr('data-id'),
+            url: '/addtocart/' + $(element).attr('data-id'),
             success: function (data) {
                 $(".notifyjs-corner").fadeIn("fast").delay(3000).fadeOut();
                 i = data;

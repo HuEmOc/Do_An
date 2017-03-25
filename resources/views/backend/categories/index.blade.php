@@ -43,7 +43,7 @@
                                     <a class="btn btn-info" href="{{route('categories.show',['id'=>$item->id])}}">Show</a>
                                     <a class="btn btn-primary" href="{{route('categories.edit',['id'=>$item->id])}}">Edit</a>
                                     <form method="post" style="display: inline-block"
-                                          action="{{route('admin.destroy',['id'=>$item->id])}}">
+                                          action="{{route('categories.destroy',['id'=>$item->id])}}">
                                         {!! csrf_field() !!}
                                         <input name="_method" value="delete" hidden>
                                         <button class="btn btn-danger" type="submit">

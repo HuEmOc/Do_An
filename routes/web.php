@@ -3,7 +3,7 @@
 Route::resource('product','backend\ProductController');
 Auth::routes();
 Route::group(['middleware'=>'isroleadmin'],function (){
-    Route::resource('orders','backend\OrderController');
+    Route::resource('order','backend\OrderController');
     Route::resource('admin','backend\UserController');
     Route::resource('categories','backend\CategoriesController');
     Route::resource('product','backend\ProductController');
@@ -17,7 +17,6 @@ Route::get('frontend_categories','frontend\PhoneController@categories');
 //categories_product
 Route::get('list_categories/{alias}',['as' => 'cateparent','uses' => 'frontend\PhoneController@cateparent']);
 //detail_product
-
 
 
 //using facebook

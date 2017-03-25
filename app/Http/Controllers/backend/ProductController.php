@@ -9,11 +9,6 @@ use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $items = Product::paginate(4);
@@ -119,12 +114,6 @@ class ProductController extends Controller
             ->with('success', 'Product update successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function categorySelectBox () {
         $categories = Category::all();
         $categoriesHtml = '';
@@ -132,5 +121,11 @@ class ProductController extends Controller
             $categoriesHtml .= '<option value="'.$category->id.'">' . $category->name . '</option>';
         }
         return $categoriesHtml;
+    }
+
+    public function destroy($id){
+        $item = Product::find($id);
+        $item->delete();
+        return redirect()->route('product.index')->with('success','Product remove successfully');
     }
 }
