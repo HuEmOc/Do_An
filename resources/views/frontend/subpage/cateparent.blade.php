@@ -29,8 +29,7 @@
                                 @foreach ($categories as $category)
                                     <li>
                                         <a href="{!! url('list_categories',[$category->alias]) !!}">{!! $category->name !!}</a>
-                                        <?php $parents = DB::table('categories')->select('id', 'name', 'alias', 'parent_id')->where('parent_id', $category->id)->orderBy('id', 'DESC')->get(); ?>
-                                        @foreach($parents as $parent)
+                                        @foreach($category->child as $parent)
                                             <a href="{{url('list_categories',[$parent->alias])}}">&nbsp;&nbsp;&raquo;&nbsp;&nbsp;{{$parent->name}}</a>
                                         @endforeach
                                     </li>
@@ -107,7 +106,7 @@
                                         <a class="product-item-name"
                                            href="{!! url('/'.$product->alias) !!}">{!! $product->name !!}</a>
                                         <div>
-                                            @if (!is_null($product->sale_id))
+                                            @if ($product->sale_id != 0)
                                                 <p class="product-item-price">
                                                     <?php echo number_format($product->price * (100- $product->relation_sale->percent)/100,0,',', '.') ?>đ
                                                     <span class="product-item-price-sale">

@@ -122,8 +122,9 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Sale_id:</strong>
-                                <input placeholder="sale_id" class="form-control" name="sale_id" type="text"
-                                       value="{{old('sale_id')}}">
+                                <select class="form-control" name="sale_id">
+                                    {!! $list_sales !!}
+                                </select>
                             </div>
                         </div>
 

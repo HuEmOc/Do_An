@@ -34,11 +34,12 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
-	
+
 	'facebook' => [
     'client_id' => '1846413082296879',
     'client_secret' => '812a8b898399140056740b1b4739b839',
     'redirect' => 'http://huemoc.dev/callback',
 	],
+
 
 ];

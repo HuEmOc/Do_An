@@ -70,7 +70,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Order::find($id)->update($request->all());
+        $item = Order::find($id);
+        $item->update($request->all());
+        foreach ($item->detail_order as $order_detail) {
+            $order_detail->update([
+                'status' => $request->status
+            ]);
+        }
         return Redirect::back();
     }
 

@@ -20,7 +20,7 @@
                                             <a class="product-item-name"
                                                href="{!! url('/'.$product_new->alias) !!}">{!! $product_new->name !!}</a>
                                             <div>
-                                                @if (!is_null($product_new->sale_id))
+                                                @if ($product_new->sale_id != 0)
                                                     <p class="product-item-price">
                                                         <?php echo number_format($product_new->price * (100- $product_new->relation_sale->percent)/100,0,',', '.') ?>đ
                                                         <span class="product-item-price-sale">

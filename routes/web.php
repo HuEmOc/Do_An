@@ -28,7 +28,7 @@ Route::get('cate','backend\CategoriesController@show');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // -- SearchController
-Route::get('home','frontend\SearchController@theme');
+Route::get('master','frontend\SearchController@theme');
 Route::get('search','frontend\SearchController@search');
 
 

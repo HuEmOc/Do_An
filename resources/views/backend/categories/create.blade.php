@@ -51,8 +51,10 @@
 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Parent_id:</strong>
-                            <input  class="form-control" name="parent_id" type="number">
+                            <strong>Parent:</strong>
+                            <select class="form-control" name="parent_id">
+                                {!! $categoriesList !!}
+                            </select>
                         </div>
                     </div>
 

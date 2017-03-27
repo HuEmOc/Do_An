@@ -22,7 +22,7 @@
                                             </a>
 
                                             <div>
-                                                @if (!is_null($product_sale->sale_id))
+                                                @if ($product_sale->sale_id != 0)
                                                     <p class="product-item-price">
                                                         <?php echo number_format($product_sale->price * (100- $product_sale->percent)/100,0,',', '.') ?>đ
                                                         <span class="product-item-price-sale">

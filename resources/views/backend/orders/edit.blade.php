@@ -62,7 +62,7 @@
                         <div class="row">
                             @foreach($item->detail_order as $detail_order)
                                 <div class="col-md-3">
-                                    <p><img style="width:150px" class="thumbnail" src="http://huemoc.dev/Image_frontend/phone/{{ $detail_order->product->image }}" ></p>
+                                    <p><img style="width:150px; height: 170px" class="thumbnail" src="http://huemoc.dev/Image_frontend/phone/{{ $detail_order->product->image }}" ></p>
                                     <p>
                                         <span style="display: block">Name: {{$detail_order->product->name}}</span>
                                         <span style="display: block">Price: {{number_format($detail_order->product->price) }}</span>

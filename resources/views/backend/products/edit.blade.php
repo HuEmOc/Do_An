@@ -81,13 +81,17 @@
             </div>
 
             <div class="form-group">
-                <strong>Categories_id : </strong>&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="number" placeholder="Categories_id" name="cate_id" value="{{$item->cate_id}}">
+                <strong>Categories:</strong>
+                <select class="form-control" name="cate_id">
+                    {!! $list_cat !!}
+                </select>
             </div>
 
             <div class="form-group">
                 <strong>Sale_id : </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="number" placeholder="sale_id" name="sale_id" value="{{$item->sale_id}}">
+                <select class="form-control" name="sale_id">
+                    {!! $list_sales !!}
+                </select>
             </div>
 
 

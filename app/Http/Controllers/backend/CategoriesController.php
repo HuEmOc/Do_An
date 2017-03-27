@@ -25,7 +25,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('backend.categories.create');
+        $categoriesList = $this->categorySelectBox();
+        return view('backend.categories.create', compact('categoriesList'));
     }
 
     /**
@@ -65,7 +66,8 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $item= Category::find($id);
-        return view('backend.categories.edit')->with(['item'=>$item]);
+        $categoriesList = $this->categorySelectBox($item->parent_id);
+        return view('backend.categories.edit')->with(['item'=>$item, 'categoriesList'=>$categoriesList]);
     }
 
     /**
@@ -101,5 +103,19 @@ class CategoriesController extends Controller
         $item = Category::find($id);
         $item->delete();
         return redirect()->route('categories.index')->with('success','Categories remove successfully');
+    }
+
+    public function categorySelectBox ($id_selected = null) {
+        $categories = Category::where('parent_id', 0)->get();
+        $categoriesHtml = '<option value="0">No Parent</option>';
+        foreach ($categories as $category) {
+            $selected = ($id_selected === $category->id) ? 'selected' : '';
+            $categoriesHtml .= '<option value="'.$category->id.'" '. $selected .'>' . $category->name . '</option>';
+            foreach ($category->child as $child) {
+                $selected = ($id_selected === $child->id) ? 'selected' : '';
+                $categoriesHtml .= '<option value="'.$child->id.'" '. $selected .'>|— ' . $child->name . '</option>';
+            }
+        }
+        return $categoriesHtml;
     }
 }

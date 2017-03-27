@@ -48,8 +48,9 @@
             </div>
             <div class="form-group">
                 <strong>Parent_id:</strong>
-                <input placeholder="Address" class="form-control" name="parent_id"
-                          value="{{$item->parent_id}}">
+                <select class="form-control" name="parent_id">
+                    {!! $categoriesList !!}
+                </select>
             </div>
             <div class="form-group">
                 <strong>Key words:</strong>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Product;
 use App\Category;
+use App\sale;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,7 +24,8 @@ class ProductController extends Controller
     public function create()
     {
         $listCategories = $this->categorySelectBox();
-        return view('backend.products.create')->with(['list_cat' => $listCategories]);
+        $listSales = $this->saleSelectBox();
+        return view('backend.products.create')->with(['list_cat' => $listCategories, 'list_sales' => $listSales]);
 
     }
 
@@ -76,7 +78,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $item= Product::find($id);
-        return view('backend.products.edit')->with(['item'=>$item]);
+        $listCategories = $this->categorySelectBox($item->cate_id);
+        $listSales = $this->saleSelectBox($item->sale_id);
+        return view('backend.products.edit')->with(['item'=>$item, 'list_cat' => $listCategories, 'list_sales' => $listSales]);
     }
 
     /**
@@ -114,14 +118,31 @@ class ProductController extends Controller
             ->with('success', 'Product update successfully');
     }
 
-    public function categorySelectBox () {
-        $categories = Category::all();
+    public function categorySelectBox ($id_selected = null) {
+        $categories = Category::where('parent_id', 0)->get();
         $categoriesHtml = '';
         foreach ($categories as $category) {
-            $categoriesHtml .= '<option value="'.$category->id.'">' . $category->name . '</option>';
+            $selected = ($id_selected === $category->id) ? 'selected' : '';
+            $categoriesHtml .= '<option value="'.$category->id.'" '. $selected .'>' . $category->name . '</option>';
+            foreach ($category->child as $child) {
+                $selected = ($id_selected === $child->id) ? 'selected' : '';
+                $categoriesHtml .= '<option value="'.$child->id.'" '. $selected .'>|— ' . $child->name . '</option>';
+            }
         }
         return $categoriesHtml;
     }
+
+    public function  saleSelectBox($id_selected = null) {
+        $sales = sale::all();
+        $salesHtml = '<option value="0">Không có sale cho đơn hàng này</option>';
+        foreach ($sales as $sale) {
+            $selected = ($id_selected === $sale->id) ? 'selected' : '';
+            $salesHtml .= '<option value="'.$sale->id.'" '. $selected .'>' . $sale->description . '</option>';
+        }
+        return $salesHtml;
+    }
+
+
 
     public function destroy($id){
         $item = Product::find($id);
