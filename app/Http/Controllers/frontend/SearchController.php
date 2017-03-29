@@ -18,10 +18,12 @@ class SearchController extends Controller
 {
     //search
     public function search(){
-        $products = Product::all();
+        $products = Product::with('relation_sale')->get();
         return Response::json(['records' => $products]);
     }
     public function theme(){
         return view('frontend.subpage.search');
     }
+
+
 }

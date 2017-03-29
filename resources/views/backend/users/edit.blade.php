@@ -9,7 +9,7 @@
                 <h2>Edit User</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" style="margin-top: 15px;" href="{{route('admin.index')}}"> Back</a>
+                <a class="btn btn-primary" style="margin-top: 15px;" href="{{route('user.index')}}"> Back</a>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
                 </ul>
             @endif
         </div>
-        <form method="post" enctype="multipart/form-data" action="{{route('admin.update',['id'=>$item->id])}}">
+        <form method="post" enctype="multipart/form-data" action="{{route('user.update',['id'=>$item->id])}}">
             <input name="_method" value="put" type="hidden">
             {!! csrf_field() !!}
 

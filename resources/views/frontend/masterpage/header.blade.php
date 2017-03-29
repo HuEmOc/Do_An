@@ -98,7 +98,7 @@
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <div class="header-search">
                         <form action="#" method="get">
-                            <a href="{{url('home')}}"><input type="text" name="search" class="hs-text" placeholder="Search"></a>
+                            <a href="{{url('master')}}"><input type="text" name="search" class="hs-text" placeholder="Search"></a>
                             <button type="submit" class="hs-submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>

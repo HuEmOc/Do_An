@@ -22,8 +22,7 @@ class SocialAccountService
             if (!$user) {
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
-                    'name' => $providerUser->getName(),
-                    'password'=>'123',
+                    'name' => $providerUser->getName()
                 ]);
             }
             $account->user()->associate($user);

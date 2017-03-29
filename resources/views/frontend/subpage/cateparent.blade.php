@@ -99,7 +99,8 @@
                             @foreach ($products as $product)
                                 <div class="col-md-4 col-sm-6 ">
                                     <div class="product-item-category">
-                                        <div class="product-item-image"><a href="{!! url('/'.$product->alias) !!}">
+                                        <div class="product-item-image">
+                                            <a href="{!! url('/'.$product->alias) !!}">
                                                 <img class="img-responsive"
                                                      src="{!! asset('/Image_frontend/phone/'.$product->image) !!}"> </a>
                                         </div>

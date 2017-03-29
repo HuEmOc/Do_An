@@ -9,7 +9,7 @@
                         <h2>Create User</h2>
                     </div>
                     <div class="pull-right">
-                        <a class="btn btn-primary" style="margin-top: 15px;" href="{{route('admin.index')}}">
+                        <a class="btn btn-primary" style="margin-top: 15px;" href="{{route('user.index')}}">
                             Back</a>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                 </div>
 
 
-                <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.index') }}">
+                <form class="form-horizontal" role="form" method="POST" action="{{ route('user.index') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

@@ -123,10 +123,10 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="{{route('admin.index')}}">
+                        <li class="active"><a href="{{route('user.index')}}">
                                 <i class="fa fa-circle-o"></i> Show Users</a>
                         </li>
-                        <li><a href="{{route('admin.create')}}"><i class="fa fa-circle-o">
+                        <li><a href="{{route('user.create')}}"><i class="fa fa-circle-o">
                                 </i>Add User</a>
                         </li>
 
@@ -156,8 +156,8 @@
                     <a href="">
                         <i class="fa fa-dashboard"></i> <span>Products</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
                     <ul class="treeview-menu">
                         <li class="active"><a href="{{route('product.index')}}">
@@ -165,6 +165,24 @@
                         </li>
                         <li><a href="{{route('product.create')}}"><i class="fa fa-circle-o">
                                 </i>Add Products</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class=" treeview">
+                    <a href="">
+                        <i class="fa fa-dashboard"></i> <span>Sale</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('sale.index')}}">
+                                <i class="fa fa-circle-o"></i> Show Sale</a>
+                        </li>
+                        <li><a href="{{route('sale.create')}}"><i class="fa fa-circle-o">
+                                </i>Add Sale</a>
                         </li>
 
                     </ul>

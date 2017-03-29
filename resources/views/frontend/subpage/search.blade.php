@@ -43,13 +43,19 @@
                                             </a>
                                         </div>
                                         <a class="product-item-name">@{{ phone.name }}</a>
-                                        <div ng-if = @{{phone.sale_id === 1}}>
-                                                <p class="product-item-price">
-                                                    abc
-                                                </p>
+                                        <div ng-if="phone.relation_sale != null">
+                                            <p class="product-item-price">
+                                                @{{phone.price * (100 - phone.relation_sale.percent)/100 | number}} đ
+                                                <span class="product-item-price-sale">
+                                                           - @{{phone.relation_sale.percent }} %
+                                                </span>
+                                                <span class="price-regular">
+                                                             @{{phone.price | number}} đ
+                                                        </span>
+                                            </p>
                                         </div>
-                                        <div ng-if = @{{ phone.sale_id != 'null' }} >
-                                            <?php echo 'nothing'?>
+                                        <div ng-if="phone.relation_sale == null">
+                                            <p class="product-item-price">@{{phone.price}}đ </p>
                                         </div>
                                         <div>
                                             <a class="product-item-cart add_to_cart" href="javascript:void(0)" data-id="@{{phone.id}}"><span></span>Thêm vào giỏ</a>
@@ -67,11 +73,6 @@
 
 
     </div>
-
-
-
-
-
     <script>
         var phoneApp = angular.module("phoneApp", []);
         phoneApp.controller('searchController', function ($scope,$http) {
@@ -82,18 +83,9 @@
             })
 
         });
-
-           /* $scope.bookList = [
-                { "id": 1, "title": "Hobbit", "author": "Aman", "price": 700 },
-                { "id": 2, "title": "Lord of the rings", "author": "Sameer", "price": 1000 },
-                { "id": 3, "title": "Harry Porter", "author": "Anuj", "price": 650 },
-                { "id": 4, "title": "The little prince", "author": "Jatin", "price": 870 },
-                { "id": 5, "title": "Angels and Demons", "author": "Shivam", "price": 890 }
-            ];
-      */
-
     </script>
     </body>
     </html>
 @endsection
+
 

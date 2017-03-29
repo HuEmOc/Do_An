@@ -9,7 +9,7 @@
                 <h2> Show User </h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" style="margin-top: 15px;"  href="{{route('admin.index')}}">Back</a>
+                <a class="btn btn-primary" style="margin-top: 15px;"  href="{{route('user.index')}}">Back</a>
             </div>
         </div>
 

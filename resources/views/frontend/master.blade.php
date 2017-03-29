@@ -125,6 +125,19 @@
             font-size: 14px;
             color: #333;
         }
+
+        .product-item-name{
+            height: 51px;
+        }
+        .product-item-price{
+            height:25px;
+        }
+        .product-item-cart add_to_cart{
+            height:37px;
+        }
+        .product-item-category .product-item-price span{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
