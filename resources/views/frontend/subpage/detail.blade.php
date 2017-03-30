@@ -63,7 +63,7 @@
                             @endif
 
                             <p class="product-description">
-                                {{$item_products->description}}
+                                {!! $item_products->introduce !!}
                             </p>
                             <div class="form-add-cart">
                                 <label for="">Số lượng</label>
@@ -120,7 +120,7 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="home">
-
+                            {!!$item_products->description!!}
                         </div>
                         <div role="tabpanel" class="tab-pane" id="profile">
                             <!-- -->
@@ -159,8 +159,15 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="fb-comments" data-href="{{\Request::url()}}" data-width="100%" data-numposts="5" ></div>
             </div>
         </div>
+
+
+
+
+
+
+
     </section>
 @stop
