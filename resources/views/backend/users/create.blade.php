@@ -80,7 +80,7 @@
 
                             <input id="gender" type="radio"  name="gender" value="2" required autofocus> Boy
 
-                            <input id="gender" type="radio"  name="gender" value="0" required autofocus> Undefine
+                            <input id="gender" type="radio"  name="gender" value="0" required autofocus> Underfine
 
                             @if ($errors->has('gender'))
                                 <span class="help-block">

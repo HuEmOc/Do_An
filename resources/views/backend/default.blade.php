@@ -210,7 +210,7 @@
 
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="height: 1200px;">
+    <div class="content-wrapper" style="height: 1800px;">
 
         <div class="col-md-12">
             @yield('content')

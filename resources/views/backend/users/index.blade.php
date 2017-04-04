@@ -30,9 +30,9 @@
                         @foreach($items as $key => $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->name}}</td>
+                                <td style="word-break: break-all;">{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
-                                <td>{{$item->address}}</td>
+                                <td style="word-break: break-all;">{{$item->address}}</td>
                                 <td>
                                     <img src="{!! asset('/Image_backend/users/'.$item->avatar) !!}"
                                          style="width: 150px ; text-align: center">

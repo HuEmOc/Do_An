@@ -50,9 +50,9 @@
                             <h1 class="product-name">{{($item_products->name)}}</h1>
                             <p class="product-availability">Tình trạng: <span> {{$status}} </span></p>
 
-
                             <p class="product-price">
-                                @if(!is_null($item_products->sale_id))
+                                @if($item_products->sale_id !== 0)
+
                                     <?php echo number_format($item_products->price * (100 - $item_products->relation_sale->percent) / 100, 0, ',', '.') ?>
                                     đ
                                     <span><?php echo number_format($item_products->price, 0, ',', '.') ?>đ </span>
@@ -114,48 +114,11 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
                                                                   data-toggle="tab">Mô tả sản phẩm</a></li>
-                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Đánh
-                                giá</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="home">
                             {!!$item_products->description!!}
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="profile">
-                            <!-- -->
-                            <ul>
-
-                                <li style="padding:5px"><strong></strong> đã cho <span style="color:red"></span> sao
-                                    <ul>
-                                        <li style="padding-top:8px"></li>
-                                    </ul>
-                                </li>
-
-                                <div style="font-size:20px">Tổng số sao: <span style="color:red">
-                </span> sao
-                                </div>
-                            </ul>
-                            <!-- -->
-                            <form action="" id="contact" method="post">
-
-                                <div class="col-md-6">
-                                    Chọn số sao:
-                                    @for($i = 1; $i <= 5; $i++)
-                                        @if($i == 5)
-                                            <input type="radio" name="danhgia" value="{!! $i !!}" title="{!! $i !!} sao"
-                                                   checked="checked"> {!! $i !!} sao
-                                        @else
-                                            <input type="radio" name="danhgia" value="{!! $i !!}"
-                                                   title="{!! $i !!} sao"> {!! $i !!} sao
-                                        @endif
-                                    @endfor
-                                    <div class="form-contact" style="margin-top:5px;">
-                                        <button type="button" class="comment-submit send_danh_gia">Gửi</button>
-                                    </div>
-                                </div>
-                            </form>
-                            <span class="guidulieu"></span>
                         </div>
                     </div>
                 </div>

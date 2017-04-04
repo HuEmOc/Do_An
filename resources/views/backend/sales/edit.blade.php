@@ -31,12 +31,12 @@
 
             <div class="form-group">
                 <strong>From:</strong>
-                <input placeholder="from" class="form-control" name="from" type="datetime" value="{{$item->from}}">
+                <input placeholder="from" class="form-control" name="from" type="date" value="{{ \Carbon\Carbon::parse($item->from)->format('Y-m-d')}}">
             </div>
 
             <div class="form-group">
                 <strong>To:</strong>
-                <input placeholder="to" class="form-control" name="to" type="datetime" value="{{$item->to}}">
+                <input placeholder="to" class="form-control" name="to" type="date" value="{{ \Carbon\Carbon::parse($item->to)->format('Y-m-d')}}">
             </div>
 
             <div class="form-group">

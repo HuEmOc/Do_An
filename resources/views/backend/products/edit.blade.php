@@ -71,6 +71,11 @@
             </div>
 
             <div class="form-group">
+                <strong>Quantity :</strong>
+                <input placeholder="Quantity" class="form-control" name="quantity" type="text" value="{{$item->quantity}}">
+            </div>
+
+            <div class="form-group">
                 <strong>Key word :</strong>
                 <input placeholder="keyword" class="form-control" name="keyword" type="text" value="{{$item->keyword}}">
             </div>

@@ -7,6 +7,8 @@ use App\Category;
 use App\sale;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ProductUpdateRequest;
 
 class ProductController extends Controller
 {
@@ -35,14 +37,17 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $input = $request->only([
-            'name', 'alias', 'screen','operationSystem','cpu','ram','camera','price','keyword','description','cate_id','sale_id'
+            'name', 'alias', 'screen','operationSystem','cpu','ram','camera','price','quantity','keyword','description','cate_id'
         ]);
+        if ($request->sale_id === 0) {
+            $input['sale_id'] = null;
+        }
+
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            //getting timestamp
             $timestamp = time();
             $name = $timestamp . '.' . $file->getClientOriginalExtension();
             $file->move(public_path() . '/Image_frontend/phone/', $name);
@@ -56,12 +61,6 @@ class ProductController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $items = Product::find($id);
@@ -69,12 +68,6 @@ class ProductController extends Controller
         return view('backend.products.show')->with(['items'=>$items]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $item= Product::find($id);
@@ -83,14 +76,8 @@ class ProductController extends Controller
         return view('backend.products.edit')->with(['item'=>$item, 'list_cat' => $listCategories, 'list_sales' => $listSales]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(ProductUpdateRequest $request, $id)
     {
         $item = Product::find($id);
         $item->name = $request->name;
@@ -101,13 +88,14 @@ class ProductController extends Controller
         $item->ram = $request->ram;
         $item->camera = $request->camera;
         $item->price = $request->price;
+        $item->quantity = $request->quantity;
         $item->keyword = $request->keyword;
         $item->description = $request->description;
         $item->cate_id = $request->cate_id;
         $item->sale_id = $request->sale_id;
+        
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            //getting timestamp
             $timestamp = time();
             $name = $timestamp . '.' . $file->getClientOriginalExtension();
             $file->move(public_path() . '/Image_frontend/phone/', $name);

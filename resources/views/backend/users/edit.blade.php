@@ -46,11 +46,9 @@
 
             <div class="form-group">
                 <strong>Gender:</strong>
-                <input id="gender" type="radio"  name="gender" value="1" required autofocus> Girl
-
-                <input id="gender" type="radio"  name="gender" value="2" required autofocus> Boy
-
-                <input id="gender" type="radio"  name="gender" value="0" required autofocus> Undefine
+                <input id="gender" type="radio" @if ( old('gender') === 1 || (int) $item->gender === 1) checked @endif   name="gender" value="1" required autofocus> Girl
+                <input id="gender" type="radio" @if ( old('gender') === 2 || (int) $item->gender === 2) checked @endif   name="gender" value="2" required autofocus> Boy
+                <input id="gender" type="radio" @if ( old('gender') === 0 || (int) $item->gender === 0) checked @endif   name="gender" value="0" required autofocus> Underfine
             </div>
 
             <div class="form-group">
@@ -62,7 +60,7 @@
 
             <div class="form-group">
                 <strong>Birthday:</strong>
-                <input id="birthday" type="date" class="form-control" name="birthday" value="{{ \Carbon\Carbon::parse(old('birthday'))->format('y-m-d')  }}" required autofocus>
+                <input id="birthday" type="date" class="form-control" name="birthday" value="{{ \Carbon\Carbon::parse($item->birthdate)->format('Y-m-d')}}" required autofocus>
             </div>
             <button type="submit" class="btn btn-primary" style="margin-left: 15px;margin-top: 10px">Submit</button>
         </form>

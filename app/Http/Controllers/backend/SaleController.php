@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\sale;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SaleRequest;
 
 class SaleController extends Controller
 {
@@ -35,8 +36,9 @@ class SaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaleRequest $request)
     {
+        //dd($request->all());
         $input = $request->only([
             'from', 'to', 'percent','description',
         ]);
@@ -76,7 +78,7 @@ class SaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SaleRequest $request, $id)
     {
         $item = sale::find($id);
         $item->from = $request->from;

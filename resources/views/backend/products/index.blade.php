@@ -22,7 +22,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Alias</th>
-                            <th>Scree</th>
+                            <th>Screen</th>
                             <th>Operation System</th>
                             <th>Cpu</th>
                             <th>Ram</th>

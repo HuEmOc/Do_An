@@ -97,6 +97,16 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
+                                <strong>Quantity:</strong>
+                                <input placeholder="Quantity" class="form-control" name="quantity" type="text"
+                                       value="{{old('quantity')}}">
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
                                 <strong>Key word:</strong>
                                 <input placeholder="keyword" class="form-control" name="keyword" type="text"
                                        value="{{old('keyword')}}">
@@ -132,10 +142,10 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Image:</strong>
-                                <input placeholder="Image" class="form-control" name="image" type="file"
-                                       value="{{old('image')}}">
+                                <input placeholder="Image" class="form-control" name="image" type="file">
                             </div>
                         </div>
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

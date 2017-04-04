@@ -51,7 +51,7 @@
                         @endforeach
 
                     </table>
-
+                    {!! $sales->render() !!}
                 </div>
             </div>
         </div>

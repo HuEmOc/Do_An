@@ -47,12 +47,13 @@ class UserController extends Controller
             //getting timestamp
             $timestamp = time();
             $name = $timestamp . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path() . '/photo/', $name);
+            $file->move(public_path() . '/Image_backend/users/', $name);
             $input['avatar'] = $name;
         }
+
         User::create($input);
 
-        return redirect()->route('admin.index')
+        return redirect()->route('user.index')
             ->with('success', 'Product create successfully');
     }
 
@@ -105,11 +106,11 @@ class UserController extends Controller
 
             $name = $timestamp . '.' . $file->getClientOriginalExtension();
 
-            $file->move(public_path() . '/Image_frontend/users/', $name);
+            $file->move(public_path() . '/Image_backend/users/', $name);
             $item->avatar = $name;
         }
         $item->save();
-        return redirect()->route('admin.index')
+        return redirect()->route('user.index')
             ->with('success', 'User update successfully');
     }
 
@@ -123,7 +124,7 @@ class UserController extends Controller
     {
         $item= User::find($id);
         $item->delete();
-        return redirect()->route('admin.index')
+        return redirect()->route('user.index')
             ->with('success','User deleted');
     }
 }
