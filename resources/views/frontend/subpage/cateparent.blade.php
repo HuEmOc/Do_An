@@ -79,8 +79,7 @@
                                                             đ </p>
                                                     @endif
                                                     <a class="product-item-cart add_to_cart" onclick="myShow(this)"
-                                                       data-id="{!! $product_sell->product->id !!}"><span></span>Thêm
-                                                        vào giỏ</a>
+                                                       data-id="{!! $product_sell->product->id !!}"><span></span>Add to cart</a>
                                                 </div>
 
                                             </div>

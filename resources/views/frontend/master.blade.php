@@ -138,6 +138,42 @@
         .product-item-category .product-item-price span{
             text-decoration: none;
         }
+
+        .product-item-category .product-item-price{
+            height: 25px;
+        }
+        .product-item-price-sale{
+            background-color: #ff9601;
+            color: #fff;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 400;
+            margin-left: 5px;
+            margin-top: -2px;
+            padding: 5px;
+            vertical-align: middle;
+            text-decoration: none;
+        }
+        .product-item-category .product-item-price .product-item-price-sale {
+            font-size: 12px;
+            text-decoration: none;
+        }
+        img.img-responsive{
+            height: 194px;
+        }
+
+        .product-item-category .product-item-price .price-regular {
+            font-size: 11px;
+            text-decoration: line-through;
+        }
+
+        p.product-item-price.ng-binding{
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+
+
     </style>
 </head>
 <body>

@@ -14,7 +14,6 @@ use App\Http\Controllers\Controller;
 use Response;
 use Cart;
 use DB;
-
 class PayController extends Controller
 {
     public function pay(){
@@ -41,6 +40,12 @@ class PayController extends Controller
             detailOrder::create($dataItem);
         }
         Cart::destroy();
-//        return view('');
+        return redirect()->route('notification');
+
+    }
+    public function notification(){
+        $thanks = Cart::content();
+        //dd($thanks);
+        return view('frontend.subpage.notification',compact('thanks'));
     }
 }

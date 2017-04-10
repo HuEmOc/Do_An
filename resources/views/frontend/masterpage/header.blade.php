@@ -71,7 +71,7 @@
                     <nav class="header-nav">
                         <ul>
                             <li class="@yield('trangchu')"><a href="{!! url('/phone') !!}">Home </a> </li>
-                            <li> <a href="#">Introduce</a> </li>
+                            <li class="@yield('gioithieu')"><a href="{{url('introduce')}}">Introduce</a> </li>
                             <li class="@yield('sanpham')"> <a href="{!! url('frontend_categories') !!}">Product<i class="fa fa-caret-down"></i></a>
                                 <ul>
                                     <?php $menus = DB::table('categories')->select('id','name','alias','parent_id')->where('parent_id',0)->orderBy('id','DESC')->get(); ?>

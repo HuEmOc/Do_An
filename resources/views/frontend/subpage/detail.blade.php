@@ -71,7 +71,7 @@
                                     <input type="text" value="1" class="quantity" name="quantity" disabled="disabled">
                                 </div>
                                 <a class="product-item-cart add_to_cart" onclick="myShow(this)"
-                                   data-id="{!! $item_products->id !!}"><span></span>Thêm vào giỏ</a>
+                                   data-id="{!! $item_products->id !!}"><span></span>Add to cart</a>
                             </div>
                         </div>
                     </div>

@@ -93,7 +93,7 @@ class ProductController extends Controller
         $item->description = $request->description;
         $item->cate_id = $request->cate_id;
         $item->sale_id = $request->sale_id;
-        
+
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $timestamp = time();

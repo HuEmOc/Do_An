@@ -73,7 +73,7 @@
                                                     @else
                                                         <p class="product-item-price"><?php echo number_format($product_sell->product->price,0,',','.') ?>đ </p>
                                                     @endif
-                                                    <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_sell->product->id !!}"><span></span>Thêm vào giỏ</a>
+                                                    <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_sell->product->id !!}"><span></span>Add to cart</a>
                                                 </div>
 
                                             </div>

@@ -4,7 +4,6 @@
         <div class="panel-heading">Product</div>
         <div class="panel-body">
             <div class="col-md-12">
-
                 <div class="row">
                     <div class="col-lg-12 margin-tb" style="padding-bottom: 10px">
                         <div class="pull-left">

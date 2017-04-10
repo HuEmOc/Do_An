@@ -11,8 +11,9 @@
     <body  ng-app="phoneApp" ng-controller="searchController">
     <div class="container">
         <div class="row">
+            <div class="col-md-12" style="padding-top: 10px;">
             <div class="col-md-4">
-                Search By:
+                <div style="color: #0000cc; margin-bottom: 5px">Search By:</div>
                 <select class="form-control" ng-model='SearchTerm'>
                     <option value='$'>Any</option>
                     <option value='name'>Name</option>
@@ -21,7 +22,7 @@
                 </select>
             </div>
             <div class="col-md-8">
-                Search Key:
+                <div style="color: #0000cc; margin-bottom: 5px">Search Key:</div>
                 <input type="text" class="form-control" ng-model="searchKeyword[SearchTerm]">
             </div>
         </div>
@@ -58,7 +59,8 @@
                                             <p class="product-item-price">@{{phone.price}}đ </p>
                                         </div>
                                         <div>
-                                            <a class="product-item-cart add_to_cart" href="javascript:void(0)" data-id="@{{phone.id}}"><span></span>Thêm vào giỏ</a>
+                                            <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="@{{phone.id}}"><span></span>Thêm vào giỏ</a>
+                                            
                                         </div>
 
                                     </div>
@@ -71,7 +73,7 @@
             </div>
         </div>
 
-
+        </div>
     </div>
     <script>
         var phoneApp = angular.module("phoneApp", []);

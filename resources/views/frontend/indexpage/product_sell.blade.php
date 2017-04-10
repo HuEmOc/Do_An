@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="block">
-                    <h2 class="block-title">Sản phẩm bán chạy</h2>
+                    <h2 class="block-title">Sell Phone</h2>
                     <div class="block-content">
                         <div class="owl-product owl-carousel">
                         @foreach ($product_sells as $product_sell)
@@ -31,7 +31,7 @@
                                                 @else
                                                     <p class="product-item-price"><?php echo number_format($product_sell->product->price,0,',','.') ?>đ </p>
                                                 @endif
-                                                <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_sell->product->id !!}"><span></span>Thêm vào giỏ</a>
+                                                <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_sell->product->id !!}"><span></span>Add to cart</a>
                                             </div>
 
                                         </div>

@@ -38,6 +38,9 @@ Route::get('master', 'frontend\SearchController@theme');
 Route::get('search', 'frontend\SearchController@search');
 
 
+//introduce
+Route::get('introduce','frontend\PhoneController@introduce');
+
 //Contacts
 Route::get('contact', 'frontend\PhoneController@contact');
 
@@ -45,7 +48,7 @@ Route::get('contact', 'frontend\PhoneController@contact');
 Route::get('pay', 'frontend\PayController@pay');
 Route::post('pay', ['as' => 'pay', 'uses' => 'frontend\PayController@postPay']);
 
-
+Route::get('notification',['as'=>'notification','uses'=>'frontend\PayController@notification']);
 //-- CartController
 Route::get('cart', ['as' => 'cart', 'uses' => 'frontend\CartController@cart']);
 Route::get('addtocart/{id?}', 'frontend\CartController@addtocart');

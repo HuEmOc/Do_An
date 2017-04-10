@@ -33,7 +33,7 @@
                                                 @else
                                                     <p class="product-item-price"><?php echo number_format($product_new->price,0,',','.') ?>đ </p>
                                                 @endif
-                                                <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_new->id !!}"><span></span>Thêm vào giỏ</a>
+                                                <a class="product-item-cart add_to_cart" onclick="myShow(this)" data-id="{!! $product_new->id !!}"><span></span>Add to cart</a>
                                             </div>
 
                                             @if($product_new->pricesale > 0)

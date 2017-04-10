@@ -66,4 +66,8 @@ class PhoneController extends Controller
         }
         return $quantity;
     }
+
+    public function introduce(){
+        return view('frontend.subpage.introduce');
+    }
 }
