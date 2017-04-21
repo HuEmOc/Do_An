@@ -32,6 +32,7 @@ class CartController extends Controller
         }else{
             $price = $add_cart->price * (100 - $add_cart->relation_sale->percent) / 100;
         }
+
         Cart::add($add_cart->id, $add_cart->name, 1,$price, array('cart' => $add_cart));
         return (Cart::count()) ;
         //return redirect()->route('giohang');

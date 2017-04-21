@@ -232,6 +232,27 @@
                 </li>
 
 
+                <li class=" treeview">
+                    <a href="">
+                        <i class="fa fa-dashboard"></i> <span>Report</span>
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('report.index')}}">
+                                <i class="fa fa-circle-o"></i>Báo cáo số lượng bán</a>
+                        </li>
+                    </ul>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('report.create')}}">
+                                <i class="fa fa-circle-o"></i>Báo cáo doanh thu</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
             </ul>
         </section>
         <!-- /.sidebar -->

@@ -11,9 +11,13 @@ Route::group(['middleware' => 'isroleadmin'], function () {
         Route::resource('categories', 'backend\CategoriesController');
         Route::resource('product', 'backend\ProductController');
         Route::resource('sale', 'backend\SaleController');
+        Route::resource('report','backend\ReportController');
     });
 });
 
+Route::post('/demo','backend\ReportController@demo');
+
+Route::get('/moneyOfMonth','backend\ReportController@moneyOfMonth');
 
 //FRONTEND
 Route::get('/', 'frontend\HomeController@index');
@@ -56,3 +60,5 @@ Route::get('delete_cart', 'frontend\CartController@delete_cart');
 Route::get('remove_cart/{id}', ['as' => 'remove_cart', 'uses' => 'frontend\CartController@remove_cart']);
 
 Route::get('{alias}', ['as' => 'detail', 'uses' => 'frontend\PhoneController@detail']);
+
+//báo cáo

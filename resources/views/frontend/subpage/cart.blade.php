@@ -35,7 +35,7 @@
                                 <?php echo number_format($row->price, 0, ',', '.') ?> đ
                             </td>
                             <td>
-                                {{$row->qty}}
+                               {{$row->qty}}
                             </td>
                             <td>
                                 <?php echo number_format($row->total, 0, ',', '.') ?> đ

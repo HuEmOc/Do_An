@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class BackendOrderController extends Controller
+class ReportMonneyController extends Controller
 {
     /**
      * Display a listing of the resource.
