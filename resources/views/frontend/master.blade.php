@@ -171,6 +171,33 @@
             margin-top: 10px;
             font-size: 12px;
         }
+        .box-gift-product{
+            max-height: 200px!important;
+            overflow-y: scroll!important;
+            border: 1px solid #b4b4b4;
+            border-radius: 4px;
+            padding: 10px 15px;
+            margin-top: 15px;
+        }
+        .error-page>.headline {
+            float: left;
+            font-size: 100px;
+            font-weight: 300;
+        }
+        .text-yellow {
+            color: #f39c12 !important;
+        }
+        p {
+            display: block;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+        }
+        .error-page {
+            width: 600px;
+            margin: 20px auto 0 auto;
+        }
 
 
 
@@ -247,6 +274,8 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
+
+
 
 <script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : document.querySelector('h1').innerHTML );var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async=1; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=a2d037085697ad15098bbc2ceba5e42e&data=eyJzc29faWQiOjIxODY3NTgsImhhc2giOiJlNmVmOTQ2ZjhiNDI3YzYyNmFlOGFiMjlmZjJhMjg1YiJ9&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
 

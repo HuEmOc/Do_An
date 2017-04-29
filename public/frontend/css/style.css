@@ -1213,7 +1213,7 @@ a:focus {
     text-align: justify;
 }
 .product-availability span {
-    color: #3c8dbc;
+    color: red;
 }
 .fac-quantity {
     position: relative;

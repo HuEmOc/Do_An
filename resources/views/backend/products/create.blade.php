@@ -107,9 +107,9 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Key word:</strong>
-                                <input placeholder="keyword" class="form-control" name="keyword" type="text"
-                                       value="{{old('keyword')}}">
+                                <strong>Introduce:</strong>
+                                <input placeholder="Introduce" class="form-control" name="Introduce" type="text"
+                                       value="{{old('introduce')}}">
                             </div>
                         </div>
 

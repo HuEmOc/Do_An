@@ -40,11 +40,8 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $input = $request->only([
-            'name', 'alias', 'screen','operationSystem','cpu','ram','camera','price','quantity','keyword','description','cate_id'
+            'name', 'alias', 'screen','operationSystem','cpu','ram','camera','price','quantity','introduce','description','cate_id','sale_id'
         ]);
-        if ($request->sale_id === 0) {
-            $input['sale_id'] = null;
-        }
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -64,7 +61,6 @@ class ProductController extends Controller
     public function show($id)
     {
         $items = Product::find($id);
-        //dd($items);
         return view('backend.products.show')->with(['items'=>$items]);
     }
 
@@ -89,7 +85,7 @@ class ProductController extends Controller
         $item->camera = $request->camera;
         $item->price = $request->price;
         $item->quantity = $request->quantity;
-        $item->keyword = $request->keyword;
+        $item->introduce = $request->introduce;
         $item->description = $request->description;
         $item->cate_id = $request->cate_id;
         $item->sale_id = $request->sale_id;

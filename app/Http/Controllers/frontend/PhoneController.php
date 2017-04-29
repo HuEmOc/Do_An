@@ -28,7 +28,7 @@ class PhoneController extends Controller
         if ($item_products->quantity - $quantitySaled > 0) {
             $status = 'Còn Hàng';
         } else {
-            $status = 'Hết Hàng';
+            $status = 'Tạm hết';
         }
         return view('frontend.subpage.detail')->with(['item_products'=>$item_products,'categories_products'=>$categories_products, 'status' => $status]);
     }

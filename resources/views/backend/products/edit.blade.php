@@ -76,8 +76,8 @@
             </div>
 
             <div class="form-group">
-                <strong>Key word :</strong>
-                <input placeholder="keyword" class="form-control" name="keyword" type="text" value="{{$item->keyword}}">
+                <strong>Introduce :</strong>
+                <textarea placeholder="Introduce" class="form-control" name="introduce">{{ old('introduce', $item->introduce) }}</textarea>
             </div>
 
             <div class="form-group">

@@ -18,7 +18,7 @@ class adminController extends Controller
         $order_waiting = Order::where('status', 0)->count();
         $order_sucess = Order::where('status', 1)->count();
         $count = array(
-            'user'          => User::count(),
+            'users'          => User::count(),
             'categories'    => Category::count(),
             'products'      => Product::count(),
             'sales'         => sale::count()

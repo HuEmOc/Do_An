@@ -6,9 +6,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-lg-12 margin-tb" style="padding-bottom: 10px">
-                        <div class="pull-left">
 
-                        </div>
                         <div class="pull-right">
                             <a class="btn btn-success" style="margin-top: 20px;" href="{{route('product.create')}}">Create
                                 new item</a>

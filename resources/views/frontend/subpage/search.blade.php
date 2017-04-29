@@ -39,7 +39,7 @@
                                 <div class="item">
                                     <div class="product-item">
                                         <div class="product-item-image">
-                                            <a href="">
+                                            <a href="{!! url('/') !!}">
                                                 <img class="img-responsive" src="{{asset('/Image_frontend/phone/')}}/@{{phone.image }}">
                                             </a>
                                         </div>

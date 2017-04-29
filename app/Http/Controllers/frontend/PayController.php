@@ -41,8 +41,8 @@ class PayController extends Controller
         }
         Cart::destroy();
         return redirect()->route('notification');
-
     }
+
     public function notification(){
         $thanks = Cart::content();
         //dd($thanks);

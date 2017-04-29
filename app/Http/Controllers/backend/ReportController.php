@@ -8,18 +8,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+use Khill\Lavacharts\Lavacharts;
+
+
+
 class ReportController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function index()
     {
-
-
-
         $reports = DB::table('detail_orders')
             ->join('products', 'detail_orders.product_id', '=', 'products.id')
             ->select('detail_orders.*','products.name','product_id', DB::raw('SUM(detail_orders.quantity) as quantity_sell'))
@@ -94,8 +92,4 @@ class ReportController extends Controller
        return view('backend.reports.demo')->with('reportdates',$reportdates);
     }
 
-    public function moneyOfMonth(){
-
-        //
-    }
 }

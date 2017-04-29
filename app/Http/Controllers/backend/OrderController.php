@@ -5,6 +5,7 @@ use App\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -46,7 +47,14 @@ class OrderController extends Controller
     public function show($id)
     {
         $items = Order::find($id);
-        return view('backend.orders.show', compact('items'));
+        $detail_informations = DB::table('detail_orders')
+            ->join('orders','orders.id', '=', 'detail_orders.order_id')
+            ->join('products','detail_orders.product_id','=','products.id')
+            ->select('detail_orders.*', 'products.name')
+            ->where('orders.id',$id)
+            ->get();
+       // dd($detail_informations);
+        return view('backend.orders.show')->with(['items'=>$items,'detail_informations'=>$detail_informations]);
     }
 
     /**

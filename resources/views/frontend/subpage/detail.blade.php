@@ -30,7 +30,7 @@
                                     @if($item_products->sale_id > 0)
                                         <span class="product-item-sale"></span>
                                     @endif
-                                    <img id="zoom" class="img-responsive"
+                                    <img id="zoom" class="img-responsive" style="height: 250px;"
                                          src="{!! asset('/Image_frontend/phone/'.$item_products->image) !!}"
                                          data-zoom=""></div>
                                 <div id="gallery_01">
@@ -48,11 +48,10 @@
                         </div>
                         <div class="col-md-8">
                             <h1 class="product-name">{{($item_products->name)}}</h1>
-                            <p class="product-availability">Tình trạng: <span> {{$status}} </span></p>
+                            <p class="product-availability">Tình trạng: <span style="color: red;"> {{$status}} </span></p>
 
                             <p class="product-price">
                                 @if($item_products->sale_id !== 0)
-
                                     <?php echo number_format($item_products->price * (100 - $item_products->relation_sale->percent) / 100, 0, ',', '.') ?>
                                     đ
                                     <span><?php echo number_format($item_products->price, 0, ',', '.') ?>đ </span>
@@ -63,10 +62,16 @@
                             @endif
 
                             <p class="product-description">
-                                {!! $item_products->introduce !!}
+
                             </p>
+
+                            <div class="box-gift-product">
+                                {!! $item_products->introduce !!}
+                            </div>
+
+
                             <div class="form-add-cart">
-                                <label for="">Số lượng</label>
+                                <label style="margin-top: 10px;" for="">Số lượng</label>
                                 <div class="fac-quantity">
                                     <input type="text" value="1" class="quantity" name="quantity" disabled="disabled">
                                 </div>

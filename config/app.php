@@ -163,7 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 		Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
-
+		Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -229,6 +229,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 		'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+		'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
+	
+		
 
     ],
 
