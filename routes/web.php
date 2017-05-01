@@ -15,7 +15,7 @@ Route::group(['middleware' => 'isroleadmin'], function () {
     });
 });
 
-Route::post('/demo','backend\ReportController@demo');
+Route::post('/reportfollowKey','backend\ReportController@demo');
 
 Route::get('/moneyOfMonth','backend\ReportController@moneyOfMonth');
 

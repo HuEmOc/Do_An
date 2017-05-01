@@ -11,8 +11,8 @@
                     <th>Phone</th>
                     <th>Address</th>
                     <th>Status</th>
-                    <th>Tong San Pham</th>
-                    <th>Tong Gia Don Hang</th>
+                    <th>Total Product</th>
+                    <th>Total Price</th>
                     <th>Action</th>
                 </tr>
 

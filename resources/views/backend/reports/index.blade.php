@@ -7,13 +7,11 @@
                 <div class="row">
                     <div class="col-lg-12 margin-tb" style="padding-bottom: 10px">
                         <div class="pull-left">
-                            <form method="POST" action="/demo">
+                            <form method="POST" action="/reportfollowKey">
                                 {{ csrf_field() }}
                                    Month:  <input type="text" name="txtMonth" value="">
                                    Year :  <input type="text" name="txtYear" value="">
                                    <input type="submit" name="form_click" value="Report">
-
-
                             </form>
                         </div>
                         <div class="pull-right">
@@ -22,7 +20,15 @@
 
                     </div>
                     <!--Tao thong bao-->
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="tablemonthexcel">
+                        <tr class="monthExl">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Categories</th>
+                            <th>Quantity</th>
+                            <th>Month</th>
+                            <th>Year</th>
+                        </tr>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
@@ -43,11 +49,13 @@
                            </tr>
                         @endforeach
 
-
+                        <button>Export</button>
                     </table>
 
                 </div>
             </div>
         </div>
     </div>
+
+
 @endsection

@@ -38,6 +38,7 @@
     <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
 <div class="wrapper">
 
     <header class="main-header">
@@ -240,12 +241,12 @@
                     </a>
                     <ul class="treeview-menu">
                         <li class="active"><a href="{{route('report.index')}}">
-                                <i class="fa fa-circle-o"></i>Báo cáo số lượng bán</a>
+                                <i class="fa fa-circle-o"></i>Report amount of sales</a>
                         </li>
                     </ul>
                     <ul class="treeview-menu">
                         <li class="active"><a href="{{route('report.create')}}">
-                                <i class="fa fa-circle-o"></i>Báo cáo doanh thu</a>
+                                <i class="fa fa-circle-o"></i>Sumary report</a>
                         </li>
                     </ul>
                 </li>
@@ -280,8 +281,6 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->
-<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
@@ -294,6 +293,8 @@
 <script src="/plugins/morris/morris.min.js"></script>
 <!-- Sparkline -->
 <script src="/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
 <!-- jvectormap -->
 <script src="/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
@@ -310,11 +311,38 @@
 <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="/plugins/fastclick/fastclick.js"></script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/dist/jquery.table2excel.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("button").click(function () {
+            $("#table2excel").table2excel({
+                // exclude CSS class
+                exclude: ".noExl",
+                name: "Worksheet Name",
+                filename: "SomeFile" //do not include extension
+            });
+            $("#tablemonthexcel").table2excel({
+                // exclude CSS class
+                exclude: ".monthExl",
+                name: "Worksheet Name",
+                filename: "s" //do not include extension
+            });
+
+        });
+
+
+    });
+</script>
 <!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
+
 </body>
 </html>
