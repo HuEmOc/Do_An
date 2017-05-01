@@ -74,22 +74,24 @@
                                 </div>
                                 <button class="btn btn-primary col-md-12" id="editinfo">SỬA</button>
 
+
                                 <script type="text/javascript">
                                     $(document).on('click', '#editinfo', function () {
                                         editInfo(this);
                                     });
                                     function editInfo (element) {
-                                        element.toggleClass('btn-primary btn-danger');
-                                        if (element.hasClass('btn-danger')) {
-                                            element.text('OK');
+                                        $('#editinfo').toggleClass('btn-primary btn-danger');
+                                        if ($('#editinfo').hasClass('btn-danger')) {
+                                            $('#editinfo').text('OK');
                                             isDisabled = false;
                                         } else {
-                                            element.text('SỬA');
+                                            $('#editinfo').text('SỬA');
                                             isDisabled = true;
                                         }
                                         $('.disabled').prop('disabled', isDisabled);
                                     }
                                 </script>
+
                             @endif
                         </div>
                         <div class="col-md-4 col-sm-6">

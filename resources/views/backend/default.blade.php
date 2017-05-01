@@ -312,13 +312,14 @@
 <!-- FastClick -->
 <script src="/plugins/fastclick/fastclick.js"></script>
 
-
+<!--export-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/dist/jquery.table2excel.js"></script>
 
 <script>
     $(document).ready(function() {
         $("button").click(function () {
+            console.log("exporting...");
             $("#table2excel").table2excel({
                 // exclude CSS class
                 exclude: ".noExl",
@@ -331,12 +332,53 @@
                 name: "Worksheet Name",
                 filename: "s" //do not include extension
             });
-
         });
-
-
     });
 </script>
+
+<!--print-->
+
+<script src="/jQuery.print.js"></script>
+
+
+<script type='text/javascript'>
+    $(function() {
+        $("#printable").find('.print').on('click', function() {
+            $.print("#printable");
+        });
+    });
+</script>
+
+<script type='text/javascript'>
+    //<![CDATA[
+    jQuery(function($) { 'use strict';
+        $("#printable").find('button').on('click', function() {
+            //Print ele4 with custom options
+            $("#printable").print({
+                //Use Global styles
+                globalStyles : false,
+                //Add link with attrbute media=print
+                mediaPrint : false,
+                //Custom stylesheet
+                stylesheet : "http://fonts.googleapis.com/css?family=Inconsolata",
+                //Print in a hidden iframe
+                iframe : false,
+                //Don't print this
+                noPrintSelector : ".avoid-this",
+                //Add this at top
+                prepend : "Hello World!!!<br/>",
+                //Add this on bottom
+                append : "<br/>Buh Bye!",
+                //Log to console when printing is done via a deffered callback
+                deferred: $.Deferred().done(function() { console.log('Printing done', arguments); })
+            });
+        });
+        // Fork https://github.com/sathvikp/jQuery.print for the full list of options
+    });
+    //]]>
+</script>
+
+
 <!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
