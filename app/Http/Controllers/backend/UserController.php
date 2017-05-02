@@ -39,7 +39,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $input = $request->only([
-            'name', 'email', 'address','gender','avatar','birthday','password'
+            'name', 'email','phone', 'address','gender','birthday','password'
         ]);
         $input['role'] = 1;
         if ($request->hasFile('avatar')) {
@@ -93,6 +93,7 @@ class UserController extends Controller
         $item = User::find($id);
         $item->name = $request->name;
         $item->email = $request->email;
+        $item->phone = $request->phone;
         $item->address = $request->address;
         $item->gender = $request->gender;
         //dd($item->gender);

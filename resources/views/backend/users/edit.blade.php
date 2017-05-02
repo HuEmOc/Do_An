@@ -40,6 +40,11 @@
             </div>
 
             <div class="form-group">
+                <strong>Phone:</strong>
+                <input placeholder="Phone" class="form-control" name="phone" type="text" value="{{$item->phone}}">
+            </div>
+
+            <div class="form-group">
                 <strong>Address:</strong>
                 <textarea placeholder="Address" class="form-control" name="address" >{{ old('address', $item->address) }}</textarea>
             </div>

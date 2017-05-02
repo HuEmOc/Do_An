@@ -18,7 +18,7 @@ class User extends Eloquent implements Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','address','gender','avatar','birthday','role','facebook_id'
+        'name', 'email','phone', 'password','address','gender','avatar','birthday','role','facebook_id'
     ];
 
     /**
@@ -29,5 +29,10 @@ class User extends Eloquent implements Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
 }
 

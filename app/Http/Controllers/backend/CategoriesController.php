@@ -38,7 +38,7 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $input = $request->only([
-            'name', 'alias', 'order','parent_id','keywords','description',
+            'name', 'alias','parent_id','keywords','description',
         ]);
         Category::create($input);
         return redirect()->route('categories.index')
