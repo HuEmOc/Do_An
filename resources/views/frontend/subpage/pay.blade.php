@@ -14,30 +14,30 @@
                                 </h2>
                             </div>
                             @if (Auth::guest())
-                                <div class="form-group"><a href="dang-ky.html">Đăng ký tài khoản mua hàng</a> | <a
+                                <div class="form-group"><a href="{{ route('register') }}">Đăng ký tài khoản mua hàng</a> | <a
                                             href="{{route('login')}}">Đăng nhập </a></div>
                                 <hr class="divider">
                                 <div class="form-group">
                                     <input name="txtEmail" class="form-control txtEmail" value="{!! old('txtEmail') !!}"
                                            placeholder="Vui lòng nhập Email">
-                                    <div class="help-block with-errors"><?php echo $errors->first('txtEmail'); ?></div>
+                                    <div class="help-block with-errors text-danger"><?php echo $errors->first('txtEmail'); ?></div>
                                 </div>
                                 <div class="billing">
                                     <div bind-show="billing_expand">
                                         <div class="form-group">
                                             <input name="txtName" class="form-control txtName"
                                                    value="{!! old('txtName') !!}" placeholder="Họ và tên">
-                                            <div class="help-block with-errors"><?php echo $errors->first('txtName'); ?></div>
+                                            <div class="help-block with-errors text-danger"><?php echo $errors->first('txtName'); ?></div>
                                         </div>
                                         <div class="form-group">
                                             <input name="txtPhone" class="form-control txtPhone"
                                                    value="{!! old('txtPhone') !!}" placeholder="Số điện thoại">
-                                            <div class="help-block with-errors"><?php echo $errors->first('txtPhone'); ?></div>
+                                            <div class="help-block with-errors text-danger"><?php echo $errors->first('txtPhone'); ?></div>
                                         </div>
                                         <div class="form-group">
                                             <input name="txtAddress" class="form-control" value="{!! old('txtAddress') !!}"
                                                    placeholder="Địa chỉ">
-                                            <div class="help-block with-errors"><?php echo $errors->first('txtAddress'); ?></div>
+                                            <div class="help-block with-errors text-danger"><?php echo $errors->first('txtAddress'); ?></div>
                                         </div>
                                         <hr class="divider">
                                     </div>
@@ -48,26 +48,26 @@
                                 </div>
                             @else
                                 <div class="form-group">
-                                    <input name="txtEmail" class="form-control txtEmail disabled" value="{!! old('txtEmail', Auth::user()->email) !!}"
-                                           placeholder="Vui lòng nhập Email" disabled>
-                                    <div class="help-block with-errors"><?php echo $errors->first('txtEmail'); ?></div>
+                                    <input name="txtEmail" class="form-control txtEmail readonly" value="{!! old('txtEmail', Auth::user()->email) !!}"
+                                           placeholder="Vui lòng nhập Email" readonly>
+                                    <div class="help-block with-errors text-danger"><?php echo $errors->first('txtEmail'); ?></div>
                                 </div>
                                 <div class="billing">
                                     <div bind-show="billing_expand">
                                         <div class="form-group">
-                                            <input name="txtName" class="form-control txtName disabled"
-                                                   value="{!! old('txtName', Auth::user()->name) !!}" placeholder="Họ và tên" disabled>
-                                            <div class="help-block with-errors"><?php echo $errors->first('txtName'); ?></div>
+                                            <input name="txtName" class="form-control txtName readonly"
+                                                   value="{!! old('txtName', Auth::user()->name) !!}" placeholder="Họ và tên" readonly="true">
+                                            <div class="help-block with-errors text-danger"><?php echo $errors->first('txtName'); ?></div>
                                         </div>
                                         <div class="form-group">
-                                            <input name="txtPhone" class="form-control txtPhone disabled"
-                                                   value="{!! old('txtPhone', Auth::user()->phone) !!}" placeholder="Số điện thoại" disabled>
-                                            <div class="help-block with-errors"><?php echo $errors->first('txtPhone'); ?></div>
+                                            <input name="txtPhone" class="form-control txtPhone readonly"
+                                                   value="{!! old('txtPhone', Auth::user()->phone) !!}" placeholder="Số điện thoại" readonly="false">
+                                            <div class="help-block with-errors text-danger"><?php echo $errors->first('txtPhone'); ?></div>
                                         </div>
                                         <div class="form-group">
-                                            <input name="txtAddress" class="form-control disabled" value="{!! old('txtAddress', Auth::user()->address) !!}"
-                                                   placeholder="Địa chỉ" disabled>
-                                            <div class="help-block with-errors"><?php echo $errors->first('txtAddress'); ?></div>
+                                            <input name="txtAddress" class="form-control readonly" value="{!! old('txtAddress', Auth::user()->address) !!}"
+                                                   placeholder="Địa chỉ" readonly>
+                                            <div class="help-block with-errors text-danger"><?php echo $errors->first('txtAddress'); ?></div>
                                         </div>
                                         <hr class="divider">
                                     </div>
@@ -76,19 +76,20 @@
 
 
                                 <script type="text/javascript">
-                                    $(document).on('click', '#editinfo', function () {
+                                    $(document).on('click', '#editinfo', function (e) {
+                                        e.preventDefault();
                                         editInfo(this);
                                     });
                                     function editInfo (element) {
                                         $('#editinfo').toggleClass('btn-primary btn-danger');
                                         if ($('#editinfo').hasClass('btn-danger')) {
                                             $('#editinfo').text('OK');
-                                            isDisabled = false;
+                                            isReadOnly = false;
                                         } else {
                                             $('#editinfo').text('SỬA');
-                                            isDisabled = true;
+                                            isReadOnly = true;
                                         }
-                                        $('.disabled').prop('disabled', isDisabled);
+                                        $('.readonly').prop('readonly', isReadOnly);
                                     }
                                 </script>
 
