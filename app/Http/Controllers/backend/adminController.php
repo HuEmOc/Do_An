@@ -21,7 +21,8 @@ class adminController extends Controller
             'users'          => User::count(),
             'categories'    => Category::count(),
             'products'      => Product::count(),
-            'sales'         => sale::count()
+            'sales'         => sale::count(),
+            'orders'        => Order::count(),
         );
         return view('backend.dashboard',compact('users','order_waiting','order_sucess','count','list_orders'));
     }

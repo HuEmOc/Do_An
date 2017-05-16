@@ -59,35 +59,11 @@
 
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="/logout" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="/dist/img/admin.jpg" class="user-image" alt="User Image">
                             <span class="hidden-xs">Huemoc</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
-                                <img src="/dist/img/profile.jpg" class="img-circle" alt="User Image">
-
-                                <p>
-                                    HueMoc - Web Developer
-                                    <small>Member since Nov. 2016</small>
-                                </p>
-                            </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-
-                                </div>
-                                <!-- /.row -->
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-
-                                <div class="pull-right">
-                                    <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
-                        </ul>
+                        
                     </li>
                     <!-- Control Sidebar Toggle Button -->
 
@@ -114,10 +90,9 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-
                 <li class=" treeview">
                     <a href="">
-                        <i class="fa fa-dashboard"></i> <span>Users</span>
+                         <span>Users</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -136,7 +111,7 @@
 
                 <li class=" treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Categories</span>
+                       <span>Categories</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -154,7 +129,7 @@
 
                 <li class=" treeview">
                     <a href="">
-                        <i class="fa fa-dashboard"></i> <span>Products</span>
+                        <span>Products</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
@@ -172,7 +147,7 @@
 
                 <li class=" treeview">
                     <a href="">
-                        <i class="fa fa-dashboard"></i> <span>Sale</span>
+                        <span>Sale</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
@@ -190,7 +165,7 @@
 
                 <li class=" treeview">
                     <a href="{{url('order')}}">
-                        <i class="fa fa-dashboard"></i> <span>Order</span>
+                        <span>Order</span>
                         <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                         </span>
@@ -203,23 +178,10 @@
                 </li>
 
 
-                <li class=" treeview">
-                    <a href="">
-                        <i class="fa fa-dashboard"></i> <span>Detail Order</span>
-                        <span class="pull-right-container">
-                          <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li class="active"><a href="">
-                                <i class="fa fa-circle-o"></i> Show Detail Order</a>
-                        </li>
-                    </ul>
-                </li>
 
                 <li class=" treeview">
                     <a href="">
-                        <i class="fa fa-dashboard"></i> <span>Chat</span>
+                        <span>Chat</span>
                         <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                         </span>
@@ -234,7 +196,7 @@
 
                 <li class=" treeview">
                     <a href="">
-                        <i class="fa fa-dashboard"></i> <span>Report</span>
+                       <span>Report</span>
                         <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                         </span>

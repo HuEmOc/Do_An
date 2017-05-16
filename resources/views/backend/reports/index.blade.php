@@ -24,7 +24,7 @@
                         <tr class="monthExl">
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Categories</th>
+
                             <th>Quantity</th>
                             <th>Month</th>
                             <th>Year</th>
@@ -32,7 +32,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Categories</th>
+
                             <th>Quantity</th>
                             <th>Month</th>
                             <th>Year</th>
@@ -42,7 +42,7 @@
                            <tr>
                                <td>{{$key +1}}</td>
                                <td>{{$report->name}}</td>
-                               <td></td>
+                              
                                <td>{{$report->quantity_sell}}</td>
                                <td>{{date('m',strtotime($report->created_at))}}</td>
                                <td>{{date('Y',strtotime($report->created_at))}}</td>
