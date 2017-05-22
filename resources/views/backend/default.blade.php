@@ -63,7 +63,7 @@
                             <img src="/dist/img/admin.jpg" class="user-image" alt="User Image">
                             <span class="hidden-xs">Huemoc</span>
                         </a>
-                        
+
                     </li>
                     <!-- Control Sidebar Toggle Button -->
 

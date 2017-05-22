@@ -7,13 +7,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <ul class="breadcrumb">
-                            <li><a href="{!! url('/phone') !!}">Trang chủ</a></li>
-                            <li>
-                                <a href="">{{$categories_products->name}}</a>
-                            </li>
-                            <li class="active">{!! $item_products->name !!}</li>
-                        </ul>
+                        <li><a href="{!! url('/phone') !!}">Trang chủ</a></li>
+                        <li>
+                            <a href="{{url('/list_categories/' . $categories_products->alias)}}">{{$categories_products->name}}</a>
+                        </li>
+                        <li class="active">{!! $item_products->name !!}</li>
                     </ul>
                 </div>
             </div>
@@ -61,22 +59,19 @@
                                     đ</p>
                             @endif
 
-                            <p class="product-description">
-
-                            </p>
-
-                            <div class="box-gift-product">
-                                {!! $item_products->introduce !!}
-                            </div>
-
+                            @if (!is_null($item_products->introduce))
+                                <div class="box-gift-product">
+                                    {!! $item_products->introduce !!}
+                                </div>
+                            @endif
 
                             <div class="form-add-cart">
                                 <label style="margin-top: 10px;" for="">Số lượng</label>
                                 <div class="fac-quantity">
-                                    <input type="text" value="1" class="quantity" name="quantity" disabled="disabled">
+                                    <input type="number" value="1" class="quantity" name="quantity" style="padding-right: 0px">
+                                    <a class="product-item-cart add_to_cart" style="cursor: pointer;display: inherit;" onclick="myShow(this, true)"
+                                       data-id="{!! $item_products->id !!}"><span></span>Add to cart</a>
                                 </div>
-                                <a class="product-item-cart add_to_cart" onclick="myShow(this)"
-                                   data-id="{!! $item_products->id !!}"><span></span>Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -130,12 +125,5 @@
                 <div class="fb-comments" data-href="{{\Request::url()}}" data-width="100%" data-numposts="5" ></div>
             </div>
         </div>
-
-
-
-
-
-
-
     </section>
 @stop
